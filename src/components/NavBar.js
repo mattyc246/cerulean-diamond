@@ -1,10 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
+import logo from "../assets/logo.png";
+import MobileMenu from "./MobileMenu";
 
 const Nav = styled.nav`
+  background-color: transparent;
   height: 100px;
   width: 100%;
-  padding: 0px 142px;
+  padding: 0px 8%;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -16,6 +19,25 @@ const LinkBar = styled.div`
   justify-content: space-evenly;
   align-items: center;
   width: 500px;
+
+  @media (max-width: 840px) {
+    display: none;
+  }
+`;
+
+const BurgerMenu = styled.button`
+  display: block;
+  outline: none;
+  cursor: pointer;
+  background: transparent;
+  width: 50px;
+  height: 50px;
+  border: 0;
+  font-size: 20px;
+  color: #e6be8a;
+  @media (min-width: 840px) {
+    display: none;
+  }
 `;
 
 const NavButton = styled.button`
@@ -30,15 +52,18 @@ const NavButton = styled.button`
 `;
 
 const NavBar = () => {
+  const [isShown, setIsShown] = useState(false);
   return (
     <Nav>
-      <h1>Navgiation</h1>
+      <img src={logo} />
       <LinkBar>
         <a>Home</a>
         <a>About</a>
         <a>Educate</a>
         <NavButton>Contact</NavButton>
       </LinkBar>
+      <BurgerMenu onClick={() => setIsShown(true)}>| | |</BurgerMenu>
+      <MobileMenu isShown={isShown} setIsShown={setIsShown} />
     </Nav>
   );
 };
