@@ -1,7 +1,10 @@
 import React from "react";
+import { Link } from "gatsby";
 import Layout from "../components/Layout";
 import styled from "styled-components";
 import HeroImage from "../assets/JWD-Image/01-Home/01.png";
+import CTAImage from "../assets/JWD-Image/01-Home/09.png";
+import AboutImage from "../assets/JWD-Image/01-Home/02.png";
 
 const Hero = styled.section`
   width: 100%;
@@ -52,8 +55,44 @@ const HeroContent = styled.header`
 
 const TestHero = styled.section`
   width: 100%;
-  height: 70vh;
-  background-color: gray;
+  height: 300px;
+`;
+
+const Content = styled.section`
+  align-self: center;
+
+  h2 {
+    color: #e6be8a;
+    font-size: xx-large;
+  }
+
+  p {
+    color: #535353;
+    line-height: 25px;
+  }
+`;
+
+const CallToAction = styled.section`
+  width: 100%;
+  height: 50vh;
+  background-image: url(${props => props.image});
+  background-position: center;
+  background-size: cover;
+`;
+
+const Button = styled(props => <Link {...props} />)`
+  width: 100px;
+  height: 30px;
+  background-color: #e6be8a;
+  border-radius: 5px;
+  border: 1px solid #e6be8a;
+  color: #ffffff;
+  outline: none;
+  font-size: 14px;
+  font-family: "Ibarra Real Nova", serif;
+  padding: 5px;
+  text-align: center;
+  text-decoration: none;
 `;
 
 const IndexPage = () => (
@@ -70,7 +109,33 @@ const IndexPage = () => (
         </div>
       </HeroContent>
     </Hero>
-    <TestHero></TestHero>
+    <Content className="container">
+      <div className="row">
+        <div className="col-md-7 mt-5 mb-5">
+          <div className="w-75 d-flex flex-column">
+            <h2>About Us</h2>
+            <p>
+              Vestibulum ante ipsum primis in faucibus orci luctus et ultrices
+              posuere cubilia Curae.
+            </p>
+            <p>
+              Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit
+              amet ligula. Nulla porttitor accumsan tincidunt. Curabitur aliquet
+              quam id dui posuere blandit. Curabitur arcu erat, accumsan id
+              imperdiet et, porttitor at sem. Pellentesque in ipsum id orci
+              porta dapibus.
+            </p>
+            <Button className="mt-3" to="/about">
+              More Details
+            </Button>
+          </div>
+        </div>
+        <div className="col-md-5 mt-5 mb-5 d-none d-lg-flex">
+          <img className="w-100" src={AboutImage} alt="Diamond Ring on Woman" />
+        </div>
+      </div>
+    </Content>
+    <CallToAction image={CTAImage}></CallToAction>
   </Layout>
 );
 
