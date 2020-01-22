@@ -4,3 +4,8 @@ body {
   font-family: "Ibarra Real Nova", serif;
   font-weight: 400;
 }
+
+button,
+a {
+  cursor: pointer;
+}

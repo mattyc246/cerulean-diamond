@@ -20,6 +20,10 @@ const LinkBar = styled.div`
   align-items: center;
   width: 500px;
 
+  a {
+    font-size: 14px;
+  }
+
   @media (max-width: 840px) {
     display: none;
   }
@@ -28,7 +32,6 @@ const LinkBar = styled.div`
 const BurgerMenu = styled.button`
   display: block;
   outline: none;
-  cursor: pointer;
   background: transparent;
   width: 50px;
   height: 50px;
@@ -42,12 +45,13 @@ const BurgerMenu = styled.button`
 
 const NavButton = styled.button`
   width: 80px;
-  height: 40px;
+  height: 30px;
   background-color: #e6be8a;
   border-radius: 5px;
+  border: 1px solid #e6be8a;
   color: #ffffff;
   outline: none;
-  font-size: 15px;
+  font-size: 14px;
   font-family: "Ibarra Real Nova", serif;
 `;
 
