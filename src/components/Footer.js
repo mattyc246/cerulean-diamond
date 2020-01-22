@@ -15,16 +15,34 @@ const Footer = styled.footer`
   justify-content: space-between;
   align-items: center;
 
+  @media (max-width: 840px) {
+    height: 100px;
+  }
+
   div {
     box-sizing: border-box;
     width: 30%;
-    padding: 10px;
+    padding: 5px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 
     p {
-      
+      font-size: small;
+    }
+
+    h6 {
+      margin: 10px 0px;
+    }
+
+    @media (max-width: 840px) {
+      h6 {
+        font-size: 8px;
+      }
+
+      p {
+        font-size: 6px;
+      }
     }
   }
 
@@ -42,15 +60,15 @@ const FooterBar = () => {
   return (
     <Footer>
       <div>
-        <h5>START A PROJECT</h5>
+        <h6>START A PROJECT</h6>
         <p>We are ready for the challenge CeruleanDiamonds@mail.com</p>
       </div>
       <div>
-        <h5>SAY HELLO</h5>
+        <h6>SAY HELLO</h6>
         <p>497 Evergreen Rd. Roseville, CA 95673 +44-345-678-903</p>
       </div>
       <div>
-        <h5>JOBS</h5>
+        <h6>JOBS</h6>
         <p>We are ready for the challenge CeruleanDiamonds@mail.com</p>
       </div>
       <button>&#8679;</button>
