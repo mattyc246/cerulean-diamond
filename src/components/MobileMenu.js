@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { Link } from "gatsby";
 
 const Modal = styled.div`
   width: 100vw;
@@ -11,6 +12,11 @@ const Modal = styled.div`
   top: 0;
   left: 0;
   display: ${props => (props.isShown ? "block" : "none")};
+  color: #535353;
+`;
+
+const StyledLink = styled(props => <Link {...props} />)`
+  text-decoration: none;
   color: #535353;
 `;
 
@@ -42,7 +48,7 @@ const LinkBar = styled.div`
   }
 `;
 
-const Button = styled.button`
+const Button = styled(props => <Link {...props} />)`
   width: 100%;
   height: 70px;
   background-color: #e6be8a;
@@ -51,6 +57,9 @@ const Button = styled.button`
   outline: none;
   font-size: 15px;
   font-family: "Ibarra Real Nova", serif;
+  text-align: center;
+  text-decoration: none;
+  padding: 25px;
 `;
 
 const MobileMenu = ({ isShown, setIsShown }) => {
@@ -61,10 +70,10 @@ const MobileMenu = ({ isShown, setIsShown }) => {
       </MenuHeader>
       <LinkBar>
         <div>
-          <a>Home</a>
-          <a>About</a>
-          <a>Educate</a>
-          <Button>Contact</Button>
+          <StyledLink to="/">Home</StyledLink>
+          <StyledLink to="/about">About</StyledLink>
+          <StyledLink to="/educate">Educate</StyledLink>
+          <Button to="contact">Contact</Button>
         </div>
       </LinkBar>
     </Modal>

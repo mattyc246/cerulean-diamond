@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "gatsby";
 import styled from "styled-components";
 import logo from "../assets/logo.png";
 import MobileMenu from "./MobileMenu";
@@ -43,7 +44,12 @@ const BurgerMenu = styled.button`
   }
 `;
 
-const NavButton = styled.button`
+const StyledLink = styled(props => <Link {...props} />)`
+  text-decoration: none;
+  color: #535353;
+`;
+
+const NavButton = styled(props => <Link {...props} />)`
   width: 80px;
   height: 30px;
   background-color: #e6be8a;
@@ -53,6 +59,9 @@ const NavButton = styled.button`
   outline: none;
   font-size: 14px;
   font-family: "Ibarra Real Nova", serif;
+  padding: 5px;
+  text-align: center;
+  text-decoration: none;
 `;
 
 const NavBar = () => {
@@ -61,10 +70,10 @@ const NavBar = () => {
     <Nav>
       <img src={logo} />
       <LinkBar>
-        <a>Home</a>
-        <a>About</a>
-        <a>Educate</a>
-        <NavButton>Contact</NavButton>
+        <StyledLink to="/">Home</StyledLink>
+        <StyledLink to="/about">About</StyledLink>
+        <StyledLink to="/educate">Educate</StyledLink>
+        <NavButton to="/contact">Contact</NavButton>
       </LinkBar>
       <BurgerMenu onClick={() => setIsShown(true)}>| | |</BurgerMenu>
       <MobileMenu isShown={isShown} setIsShown={setIsShown} />
