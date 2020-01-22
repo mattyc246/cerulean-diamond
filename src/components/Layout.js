@@ -17,10 +17,10 @@ const Content = styled.main`
   position: relative;
 `;
 
-const Layout = ({ children }) => {
+const Layout = ({ children, hoverNav }) => {
   return (
     <PageContainer>
-      <NavBar />
+      <NavBar hoverNav={hoverNav} />
       <Content>{children}</Content>
       <Footer />
     </PageContainer>

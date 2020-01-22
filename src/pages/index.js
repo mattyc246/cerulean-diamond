@@ -96,7 +96,7 @@ const Button = styled(props => <Link {...props} />)`
 `;
 
 const IndexPage = () => (
-  <Layout>
+  <Layout hoverNav={true}>
     <Hero image={HeroImage}>
       <HeroContent>
         <div>
