@@ -1,5 +1,7 @@
 import React from "react";
 import styled from "styled-components";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCaretSquareUp } from "@fortawesome/free-regular-svg-icons";
 
 const Footer = styled.footer`
   height: 150px;
@@ -17,6 +19,7 @@ const Footer = styled.footer`
 
   @media (max-width: 840px) {
     height: 100px;
+    padding: 0px 3%;
   }
 
   div {
@@ -36,6 +39,8 @@ const Footer = styled.footer`
     }
 
     @media (max-width: 840px) {
+      width: 30%;
+
       h6 {
         font-size: 8px;
       }
@@ -45,14 +50,14 @@ const Footer = styled.footer`
       }
     }
   }
+`;
 
-  button {
-    width: 50px;
-    height: 50px;
-    background-color: transparent;
-    color: #e6be8a;
-    border: 4px solid #e6be8a;
-    font-size: 28px;
+const StyledIcon = styled(props => <FontAwesomeIcon {...props} />)`
+  color: #e6be8a;
+  font-size: 48px;
+
+  @media (max-width: 840px) {
+    font-size: 24px;
   }
 `;
 
@@ -71,7 +76,7 @@ const FooterBar = () => {
         <h6>JOBS</h6>
         <p>We are ready for the challenge CeruleanDiamonds@mail.com</p>
       </div>
-      <button>&#8679;</button>
+      <StyledIcon icon={faCaretSquareUp} />
     </Footer>
   );
 };
