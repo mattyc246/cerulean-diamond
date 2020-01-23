@@ -5,6 +5,7 @@ import styled from "styled-components";
 import HeroImage from "../assets/JWD-Image/01-Home/01.png";
 import CTAImage from "../assets/JWD-Image/01-Home/09.png";
 import AboutImage from "../assets/JWD-Image/01-Home/02.png";
+import Gallery from "../components/Gallery";
 
 const Hero = styled.section`
   width: 100%;
@@ -53,11 +54,6 @@ const HeroContent = styled.header`
   }
 `;
 
-const TestHero = styled.section`
-  width: 100%;
-  height: 300px;
-`;
-
 const Content = styled.section`
   align-self: center;
 
@@ -78,6 +74,23 @@ const CallToAction = styled.section`
   background-image: url(${props => props.image});
   background-position: center;
   background-size: cover;
+  display: flex;
+  align-items: center;
+  color: white;
+
+  h2 {
+    font-size: 48px;
+    text-align: right;
+    margin: 0;
+
+    @media (max-width: 840px) {
+      font-size: 36px;
+    }
+  }
+
+  p {
+    text-align: right;
+  }
 `;
 
 const Button = styled(props => <Link {...props} />)`
@@ -135,7 +148,22 @@ const IndexPage = () => (
         </div>
       </div>
     </Content>
-    <CallToAction image={CTAImage}></CallToAction>
+    <Gallery></Gallery>
+    <CallToAction image={CTAImage}>
+      <div className="container">
+        <div className="row justify-content-end align-items-center">
+          <div className="col-md-8 col-xs-10">
+            <h2>Lorem Ipsum Is</h2>
+            <p>
+              It is a long established fact that a reader will be distracted.
+            </p>
+            <Button className="ml-auto d-block" to="/about">
+              Know More
+            </Button>
+          </div>
+        </div>
+      </div>
+    </CallToAction>
   </Layout>
 );
 
