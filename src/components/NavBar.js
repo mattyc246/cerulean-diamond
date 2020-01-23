@@ -3,6 +3,8 @@ import { Link } from "gatsby";
 import styled from "styled-components";
 import logo from "../assets/logo.png";
 import MobileMenu from "./MobileMenu";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBars } from "@fortawesome/free-solid-svg-icons";
 
 const Nav = styled.nav`
   background-color: transparent;
@@ -37,15 +39,10 @@ const LinkBar = styled.div`
   }
 `;
 
-const BurgerMenu = styled.button`
+const StyledIcon = styled(props => <FontAwesomeIcon {...props} />)`
   display: block;
-  outline: none;
-  background: transparent;
-  width: 50px;
-  height: 50px;
-  border: 0;
-  font-size: 20px;
   color: #e6be8a;
+  font-size: 24px;
   @media (min-width: 840px) {
     display: none;
   }
@@ -75,14 +72,14 @@ const NavBar = ({ hoverNav }) => {
   const [isShown, setIsShown] = useState(false);
   return (
     <Nav hoverNav={hoverNav}>
-      <img src={logo} />
+      <img src={logo} alt="Cerulean Diamond Logo" />
       <LinkBar>
         <StyledLink to="/">Home</StyledLink>
         <StyledLink to="/about">About</StyledLink>
         <StyledLink to="/educate">Educate</StyledLink>
         <NavButton to="/contact">Contact</NavButton>
       </LinkBar>
-      <BurgerMenu onClick={() => setIsShown(true)}>| | |</BurgerMenu>
+      <StyledIcon onClick={() => setIsShown(true)} icon={faBars} />
       <MobileMenu isShown={isShown} setIsShown={setIsShown} />
     </Nav>
   );

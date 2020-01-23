@@ -1,6 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 import { Link } from "gatsby";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTimes } from "@fortawesome/free-solid-svg-icons";
 
 const Modal = styled.div`
   width: 100vw;
@@ -25,10 +27,6 @@ const MenuHeader = styled.div`
   height: 5%;
   width: 100%;
   text-align: right;
-
-  h1 {
-    margin: 0;
-  }
 `;
 
 const LinkBar = styled.div`
@@ -67,7 +65,7 @@ const MobileMenu = ({ isShown, setIsShown }) => {
   return (
     <Modal isShown={isShown}>
       <MenuHeader>
-        <h1 onClick={() => setIsShown(false)}>X</h1>
+        <FontAwesomeIcon onClick={() => setIsShown(false)} icon={faTimes} />
       </MenuHeader>
       <LinkBar>
         <div>
