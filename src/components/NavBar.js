@@ -72,7 +72,7 @@ const NavBar = ({ hoverNav }) => {
   const [isShown, setIsShown] = useState(false);
   return (
     <Nav hoverNav={hoverNav}>
-      <img src={logo} />
+      <img src={logo} alt="Cerulean Diamond Logo" />
       <LinkBar>
         <StyledLink to="/">Home</StyledLink>
         <StyledLink to="/about">About</StyledLink>
