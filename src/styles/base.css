@@ -3,11 +3,34 @@
 body {
   font-family: "Ibarra Real Nova", serif;
   font-weight: 400;
+}
+
+body,
+main,
+article,
+section {
   padding: 0;
+  margin: 0;
 }
 
 button,
 a {
   cursor: pointer;
   outline: none;
+}
+
+.w-100 {
+  width: 100% !important;
+}
+
+.w-75 {
+  width: 75% !important;
+}
+
+.w-50 {
+  width: 50% !important;
+}
+
+.w-25 {
+  width: 100% !important;
 }

@@ -13,6 +13,13 @@ const Nav = styled.nav`
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  ${props =>
+    props.hoverNav
+      ? `
+  position: absolute;
+  top: 0px;
+  z-index: 100;`
+      : ""}
 `;
 
 const LinkBar = styled.div`
@@ -64,10 +71,10 @@ const NavButton = styled(props => <Link {...props} />)`
   text-decoration: none;
 `;
 
-const NavBar = () => {
+const NavBar = ({ hoverNav }) => {
   const [isShown, setIsShown] = useState(false);
   return (
-    <Nav>
+    <Nav hoverNav={hoverNav}>
       <img src={logo} />
       <LinkBar>
         <StyledLink to="/">Home</StyledLink>

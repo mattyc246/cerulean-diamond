@@ -8,6 +8,7 @@ const Modal = styled.div`
   background-color: #c69672;
   box-sizing: border-box;
   position: fixed;
+  z-index: 999;
   padding: 20px;
   top: 0;
   left: 0;
