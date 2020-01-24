@@ -1,5 +1,6 @@
 import React from "react";
 import { graphql } from "gatsby";
+import { HelmetDatoCms } from "gatsby-source-datocms";
 import Layout from "../components/Layout";
 import styled from "styled-components";
 import Gallery from "../components/Gallery";
@@ -110,6 +111,7 @@ const CallToAction = styled.section`
 const IndexPage = ({ data: { home } }) => {
   return (
     <Layout hoverNav={true}>
+      <HelmetDatoCms seo={home.seoMetaTags} />
       <Hero image={home.heroImage.url}>
         <HeroContent>
           <div>
@@ -161,6 +163,9 @@ export default IndexPage;
 export const query = graphql`
   query HomeQuery {
     home: datoCmsHome {
+      seoMetaTags {
+        ...GatsbyDatoCmsSeoMetaTags
+      }
       heroTitle
       heroText
       heroImage {

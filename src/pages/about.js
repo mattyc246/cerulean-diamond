@@ -1,4 +1,5 @@
 import React from "react";
+import { HelmetDatoCms } from "gatsby-source-datocms";
 import Layout from "../components/Layout";
 import styled from "styled-components";
 import ButtonLink from "../components/ButtonLink";
@@ -179,6 +180,7 @@ const CTAContent = styled.article`
 
 const About = ({ data: { about } }) => (
   <Layout>
+    <HelmetDatoCms seo={about.seoMetaTags} />
     <div className="container">
       <div className="row mb-5 mt-4">
         <div className="col-sm-7">
@@ -241,6 +243,9 @@ export default About;
 export const query = graphql`
   query AboutPage {
     about: datoCmsAbout {
+      seoMetaTags {
+        ...GatsbyDatoCmsSeoMetaTags
+      }
       heroTitle
       heroText
       heroImage {
