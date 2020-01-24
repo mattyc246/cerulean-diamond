@@ -2,12 +2,6 @@ import React from "react";
 import Layout from "../components/Layout";
 import styled from "styled-components";
 import ButtonLink from "../components/ButtonLink";
-import InspectDiamond from "../assets/JWD-Image/02-About/10.png";
-import FaintDiamond from "../assets/JWD-Image/02-About/12.png";
-import HeroImage from "../assets/JWD-Image/02-About/11.png";
-import Ring from "../assets/JWD-Image/02-About/04.png";
-import EarRings from "../assets/JWD-Image/02-About/06.png";
-import Rings from "../assets/JWD-Image/02-About/08.png";
 import { MEDIA, COLORS } from "../constants/variables";
 import { graphql } from "gatsby";
 

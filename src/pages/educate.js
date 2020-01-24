@@ -1,8 +1,7 @@
 import React from "react";
-import FourCs from "../assets/JWD-Image/03-4c/13.png";
+import { graphql } from "gatsby";
 import styled from "styled-components";
 import Layout from "../components/Layout";
-import { DATA } from "../constants/DiamondData";
 import { COLORS, MEDIA } from "../constants/variables";
 
 const HeroSection = styled.section`
@@ -58,49 +57,35 @@ const SubArticle = styled.article`
   }
 `;
 
-const Educate = () => {
+const Educate = ({ data: { hero, fours } }) => {
   return (
     <Layout>
       <HeroSection>
         <div className="container">
-          <h1>4 C's Diamond Education</h1>
-          <p>
-            Vestibulum ante ipsum primis in faucibus orci luctus et ultrices
-            posuere cubilia Curae.
-          </p>
-          <p>
-            Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet
-            ligula. Nulla porttitor accumsan tincidunt.
-          </p>
+          <h1>{hero.heroTitle}</h1>
+          <p>{hero.heroText}</p>
           <img
             className="w-75 d-block mx-auto"
-            src={FourCs}
-            alt="Diamond 4 C's"
+            src={hero.heroImage.url}
+            alt={hero.heroImage.alt}
           />
           <SubArticle>
-            <h2>What is 4C?</h2>
-            <p>
-              Vestibulum ante ipsum primis in faucibus orci luctus et ultrices
-              posuere cubilia Curae.
-            </p>
-            <p>
-              Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit
-              amet ligula. Nulla porttitor accumsan tincidunt.
-            </p>
+            <h2>{hero.heroSubtitle}</h2>
+            <p>{hero.heroSubtext}</p>
           </SubArticle>
         </div>
       </HeroSection>
       <div className="container pb-5">
-        {DATA.map((article, index) => {
+        {fours.nodes.reverse().map((article, index) => {
           return (
-            <SubArticle key={index}>
+            <SubArticle key={article.id}>
               <img
                 className="w-100 mt-4"
-                src={article.imageUrl}
-                alt={article.subTitle}
+                src={article.image.url}
+                alt={article.image.alt}
               />
-              <h2>{article.subTitle}</h2>
-              <p>{article.description}</p>
+              <h2>{article.title}</h2>
+              <p>{article.text}</p>
             </SubArticle>
           );
         })}
@@ -110,3 +95,29 @@ const Educate = () => {
 };
 
 export default Educate;
+
+export const query = graphql`
+  query EducatePage {
+    hero: datoCmsEducate {
+      heroTitle
+      heroText
+      heroImage {
+        url
+        alt
+      }
+      heroSubtitle
+      heroSubtext
+    }
+    fours: allDatoCmsFourC {
+      nodes {
+        id
+        title
+        text
+        image {
+          url
+          alt
+        }
+      }
+    }
+  }
+`;
