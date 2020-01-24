@@ -1,7 +1,7 @@
 import React from "react";
-import { Link } from "gatsby";
 import Layout from "../components/Layout";
 import styled from "styled-components";
+import ButtonLink from "../components/ButtonLink";
 import InspectDiamond from "../assets/JWD-Image/02-About/10.png";
 import FaintDiamond from "../assets/JWD-Image/02-About/12.png";
 import HeroImage from "../assets/JWD-Image/02-About/11.png";
@@ -182,21 +182,6 @@ const CTAContent = styled.article`
   }
 `;
 
-const Button = styled(props => <Link {...props} />)`
-  width: 100px;
-  height: 30px;
-  background-color: ${COLORS.lightBrown};
-  border-radius: 5px;
-  border: 1px solid ${COLORS.lightBrown};
-  color: ${COLORS.textLight};
-  outline: none;
-  font-size: 14px;
-  font-family: "Ibarra Real Nova", serif;
-  padding: 5px 15px;
-  text-align: center;
-  text-decoration: none;
-`;
-
 const About = () => (
   <Layout>
     <div className="container">
@@ -259,7 +244,9 @@ const About = () => (
       <CTAContent>
         <h2>Lorem Ipsum Is</h2>
         <p>It is a long established fact that a reader will be distracted.</p>
-        <Button to="/contact">Contact</Button>
+        <ButtonLink width="80px" to="/contact">
+          Contact
+        </ButtonLink>
       </CTAContent>
     </CallToAction>
   </Layout>
