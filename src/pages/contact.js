@@ -11,10 +11,26 @@ const StyledSection = styled.section`
   background-size: contain;
   background-position: bottom;
   background-repeat: no-repeat;
+
+  h1 {
+    color: #e6be8a;
+    margin: 0px 0px 30px 0px;
+    @media (min-width: 840px) {
+      font-size: 48px;
+    }
+  }
+
+  p {
+    color: #535353;
+    margin: 20px 0px;
+    @media (min-width: 840px) {
+      font-size: 24px;
+    }
+  }
 `;
 
 const ContactCard = styled.div`
-  width: 75%;
+  width: 100%;
   background-color: white;
   display: block;
   padding: 30px;
@@ -88,8 +104,13 @@ const Contact = () => {
     <Layout>
       <StyledSection image={Diamonds}>
         <div className="container">
-          <div className="row">
-            <div className="col-md-7">
+          <div className="row justify-content-between">
+            <div className="col-md-6">
+              <h1>Contact Us</h1>
+              <p>
+                Vestibulum ante ipsum primis in faucibus orci luctus et ultrices
+                posuere cubilia Curae.
+              </p>
               <ContactCard>
                 <small>
                   <strong>Email</strong>
