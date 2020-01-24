@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "gatsby";
 import Layout from "../components/Layout";
 import styled from "styled-components";
 import HeroImage from "../assets/JWD-Image/01-Home/01.png";
@@ -7,6 +6,7 @@ import CTAImage from "../assets/JWD-Image/01-Home/09.png";
 import AboutImage from "../assets/JWD-Image/01-Home/02.png";
 import Gallery from "../components/Gallery";
 import { MEDIA, COLORS } from "../constants/variables";
+import ButtonLink from "../components/ButtonLink";
 
 const Hero = styled.section`
   width: 100%;
@@ -109,21 +109,6 @@ const CallToAction = styled.section`
   }
 `;
 
-const Button = styled(props => <Link {...props} />)`
-  width: 100px;
-  height: 30px;
-  background-color: ${COLORS.lightBrown};
-  border-radius: 5px;
-  border: 1px solid ${COLORS.lightBrown};
-  color: ${COLORS.textLight};
-  outline: none;
-  font-size: 14px;
-  font-family: "Ibarra Real Nova", serif;
-  padding: 5px;
-  text-align: center;
-  text-decoration: none;
-`;
-
 const IndexPage = () => (
   <Layout hoverNav={true}>
     <Hero image={HeroImage}>
@@ -154,9 +139,9 @@ const IndexPage = () => (
               imperdiet et, porttitor at sem. Pellentesque in ipsum id orci
               porta dapibus.
             </p>
-            <Button className="mt-3" to="/about">
+            <ButtonLink width="90px" className="mt-3" to="/about">
               More Details
-            </Button>
+            </ButtonLink>
           </div>
         </div>
         <div className="col-lg-5 mt-5 mb-5 d-none d-lg-flex">
@@ -164,7 +149,7 @@ const IndexPage = () => (
         </div>
       </div>
     </Content>
-    <Gallery></Gallery>
+    <Gallery />
     <CallToAction image={CTAImage}>
       <div className="container">
         <div className="row justify-content-end align-items-center">
@@ -173,9 +158,9 @@ const IndexPage = () => (
             <p>
               It is a long established fact that a reader will be distracted.
             </p>
-            <Button className="ml-auto d-block" to="/about">
+            <ButtonLink width="100px" className="ml-auto d-block" to="/about">
               Know More
-            </Button>
+            </ButtonLink>
           </div>
         </div>
       </div>

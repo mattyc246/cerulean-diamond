@@ -18,9 +18,15 @@ const StyledButton = styled(props => <Link {...props} />)`
   text-decoration: none;
 `;
 
-const ButtonLink = ({ children, width, height, to, padding }) => {
+const ButtonLink = ({ children, width, height, to, padding, className }) => {
   return (
-    <StyledButton width={width} height={height} to={to} padding={padding}>
+    <StyledButton
+      className={className}
+      width={width}
+      height={height}
+      to={to}
+      padding={padding}
+    >
       {children}
     </StyledButton>
   );
