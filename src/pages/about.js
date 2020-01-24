@@ -9,6 +9,7 @@ import Ring from "../assets/JWD-Image/02-About/04.png";
 import EarRings from "../assets/JWD-Image/02-About/06.png";
 import Rings from "../assets/JWD-Image/02-About/08.png";
 import { MEDIA, COLORS } from "../constants/variables";
+import { graphql } from "gatsby";
 
 const StyledContent = styled.article`
   height: 100%;
@@ -182,68 +183,57 @@ const CTAContent = styled.article`
   }
 `;
 
-const About = () => (
+const About = ({ data: { about } }) => (
   <Layout>
     <div className="container">
       <div className="row mb-5 mt-4">
         <div className="col-sm-7">
           <StyledContent>
-            <h1>About Us</h1>
-            <p>
-              Vestibulum ante ipsum primis in faucibus orci luctus et ultrices
-              posuere cubilia Curae.
-            </p>
-            <p>
-              Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit
-              amet ligula. Nulla porttitor accumsan tincidunt.
-            </p>
+            <h1>{about.heroTitle}</h1>
+            <p>{about.heroText}</p>
           </StyledContent>
         </div>
         <div className="col-sm-5">
           <img
-            src={InspectDiamond}
+            src={about.heroImage.url}
             className="w-100 d-none d-sm-block"
-            alt="Inspecting Diamond"
+            alt={about.heroImage.alt}
           />
         </div>
       </div>
     </div>
-    <HeroSection image={HeroImage}>
+    <HeroSection image={about.contentImage.url}>
       <article>
         <div>
-          <h2>Lorem Ipsum</h2>
-          <p>
-            Vestibulum ante ipsum primis in faucibus orci luctus et ultrices
-            posuere cubilia Curae.
-          </p>
-          <p>
-            Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet
-            ligula. Nulla porttitor accumsan tincidunt. Curabitur aliquet quam
-            id dui posuere blandit. Curabitur arcu erat, accumsan id imperdiet
-            et, porttitor at sem. Pellentesque in ipsum id orci porta dapibus.{" "}
-          </p>
+          <h2>{about.contentTitle}</h2>
+          <p>{about.contentText}</p>
         </div>
-        <StyledImage src={Ring} width="15%" bottom="-20%" alt="Ring" />
         <StyledImage
-          src={EarRings}
+          src={about.hoverImages[0].url}
+          width="15%"
+          bottom="-20%"
+          alt={about.hoverImages[0].alt}
+        />
+        <StyledImage
+          src={about.hoverImages[1].url}
           width="15%"
           top="-5%"
           right="10%"
-          alt="Diamond Ear Rings"
+          alt={about.hoverImages[1].alt}
         />
         <StyledImage
-          src={Rings}
+          src={about.hoverImages[2].url}
           width="20%"
           bottom="-15%"
           right="12%"
-          alt="Diamond Rings"
+          alt={about.hoverImages[2].alt}
         />
       </article>
     </HeroSection>
-    <CallToAction image={FaintDiamond}>
+    <CallToAction image={about.ctaImage.url}>
       <CTAContent>
-        <h2>Lorem Ipsum Is</h2>
-        <p>It is a long established fact that a reader will be distracted.</p>
+        <h2>{about.ctaTitle}</h2>
+        <p>{about.ctaSubtitle}</p>
         <ButtonLink width="80px" to="/contact">
           Contact
         </ButtonLink>
@@ -253,3 +243,31 @@ const About = () => (
 );
 
 export default About;
+
+export const query = graphql`
+  query AboutPage {
+    about: datoCmsAbout {
+      heroTitle
+      heroText
+      heroImage {
+        url
+        alt
+      }
+      contentTitle
+      contentText
+      contentImage {
+        url
+      }
+      hoverImages {
+        url
+        alt
+        originalId
+      }
+      ctaTitle
+      ctaSubtitle
+      ctaImage {
+        url
+      }
+    }
+  }
+`;
