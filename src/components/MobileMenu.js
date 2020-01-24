@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { Link } from "gatsby";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
+import ButtonLink from "./ButtonLink";
 
 const Modal = styled.div`
   width: 100vw;
@@ -47,20 +48,6 @@ const LinkBar = styled.div`
   }
 `;
 
-const Button = styled(props => <Link {...props} />)`
-  width: 100%;
-  height: 70px;
-  background-color: #e6be8a;
-  color: #ffffff;
-  border: 1px solid #e6be8a;
-  outline: none;
-  font-size: 15px;
-  font-family: "Ibarra Real Nova", serif;
-  text-align: center;
-  text-decoration: none;
-  padding: 25px;
-`;
-
 const MobileMenu = ({ isShown, setIsShown }) => {
   return (
     <Modal isShown={isShown}>
@@ -72,7 +59,9 @@ const MobileMenu = ({ isShown, setIsShown }) => {
           <StyledLink to="/">Home</StyledLink>
           <StyledLink to="/about">About</StyledLink>
           <StyledLink to="/educate">Educate</StyledLink>
-          <Button to="contact">Contact</Button>
+          <ButtonLink width="70%" height="50px" to="/contact" padding="15px">
+            Contact
+          </ButtonLink>
         </div>
       </LinkBar>
     </Modal>

@@ -3,6 +3,7 @@ import { Link } from "gatsby";
 import styled from "styled-components";
 import logo from "../assets/logo.png";
 import MobileMenu from "./MobileMenu";
+import ButtonLink from "./ButtonLink";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
 
@@ -53,21 +54,6 @@ const StyledLink = styled(props => <Link {...props} />)`
   color: #535353;
 `;
 
-const NavButton = styled(props => <Link {...props} />)`
-  width: 80px;
-  height: 30px;
-  background-color: #e6be8a;
-  border-radius: 5px;
-  border: 1px solid #e6be8a;
-  color: #ffffff;
-  outline: none;
-  font-size: 14px;
-  font-family: "Ibarra Real Nova", serif;
-  padding: 5px;
-  text-align: center;
-  text-decoration: none;
-`;
-
 const NavBar = ({ hoverNav }) => {
   const [isShown, setIsShown] = useState(false);
   return (
@@ -77,7 +63,9 @@ const NavBar = ({ hoverNav }) => {
         <StyledLink to="/">Home</StyledLink>
         <StyledLink to="/about">About</StyledLink>
         <StyledLink to="/educate">Educate</StyledLink>
-        <NavButton to="/contact">Contact</NavButton>
+        <ButtonLink width="100px" height="30px" to="/contact">
+          Contact
+        </ButtonLink>
       </LinkBar>
       <StyledIcon onClick={() => setIsShown(true)} icon={faBars} />
       <MobileMenu isShown={isShown} setIsShown={setIsShown} />
