@@ -1,7 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-// import Masonry from "react-masonry-component";
-import { GALLERYDATA } from "../constants/DiamondData";
 
 const GalleryContent = styled.section`
   width: 100%;
@@ -49,16 +47,16 @@ const Caption = styled.div`
   }
 `;
 
-const Gallery = () => {
+const Gallery = ({ images }) => {
   return (
     <GalleryContent className="container">
       <Masonry>
-        {GALLERYDATA.map((item, index) => {
+        {images.map(img => {
           return (
-            <MasonryItem key={index}>
-              <img className="w-100" src={item.imageUrl} alt={item.imageAlt} />
+            <MasonryItem key={img.originalId}>
+              <img className="w-100" src={img.url} alt={img.alt} />
               <Caption>
-                <p>{item.imageCaption}</p>
+                <p>{img.title}</p>
               </Caption>
             </MasonryItem>
           );

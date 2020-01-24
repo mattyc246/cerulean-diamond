@@ -108,7 +108,6 @@ const CallToAction = styled.section`
 `;
 
 const IndexPage = ({ data: datoCmsHome }) => {
-  console.log(datoCmsHome);
   return (
     <Layout hoverNav={true}>
       <Hero image={datoCmsHome.datoCmsHome.heroImage.url}>
@@ -139,7 +138,7 @@ const IndexPage = ({ data: datoCmsHome }) => {
           </div>
         </div>
       </Content>
-      <Gallery />
+      <Gallery images={datoCmsHome.datoCmsHome.galleryImages} />
       <CallToAction image={datoCmsHome.datoCmsHome.ctaImage.url}>
         <div className="container">
           <div className="row justify-content-end align-items-center">
@@ -177,6 +176,12 @@ export const query = graphql`
       ctaText
       ctaImage {
         url
+      }
+      galleryImages {
+        url
+        alt
+        title
+        originalId
       }
     }
   }
