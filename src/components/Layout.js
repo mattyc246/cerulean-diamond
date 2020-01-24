@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import NavBar from "./NavBar";
 import Footer from "../components/Footer";
 import styled from "styled-components";
@@ -17,12 +17,17 @@ const Content = styled.main`
   position: relative;
 `;
 
+const scrollToTop = ref => window.scrollTo(0, ref.current.offsetTop);
+
 const Layout = ({ children, hoverNav }) => {
+  const pageTop = useRef(null);
+  const jumpToTop = () => scrollToTop(pageTop);
+
   return (
-    <PageContainer>
+    <PageContainer ref={pageTop}>
       <NavBar hoverNav={hoverNav} />
       <Content>{children}</Content>
-      <Footer />
+      <Footer jumpToTop={jumpToTop} />
     </PageContainer>
   );
 };

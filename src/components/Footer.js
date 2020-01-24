@@ -61,7 +61,7 @@ const StyledIcon = styled(props => <FontAwesomeIcon {...props} />)`
   }
 `;
 
-const FooterBar = () => {
+const FooterBar = ({ jumpToTop }) => {
   return (
     <Footer>
       <div>
@@ -76,7 +76,7 @@ const FooterBar = () => {
         <h6>JOBS</h6>
         <p>We are ready for the challenge CeruleanDiamonds@mail.com</p>
       </div>
-      <StyledIcon icon={faCaretSquareUp} />
+      <StyledIcon onClick={() => jumpToTop()} icon={faCaretSquareUp} />
     </Footer>
   );
 };
