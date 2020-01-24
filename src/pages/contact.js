@@ -3,6 +3,7 @@ import styled from "styled-components";
 import Layout from "../components/Layout";
 import Diamonds from "../assets/JWD-Image/04-Contact/19.png";
 import Necklace from "../assets/JWD-Image/04-Contact/18.png";
+import { COLORS, MEDIA } from "../constants/variables";
 
 const StyledSection = styled.section`
   width: 100%;
@@ -13,18 +14,26 @@ const StyledSection = styled.section`
   background-repeat: no-repeat;
 
   h1 {
-    color: #e6be8a;
+    color: ${COLORS.lightBrown};
     margin: 0px 0px 30px 0px;
-    @media (min-width: 840px) {
+    font-size: 24px;
+    @media (min-width: ${MEDIA.tablet}) {
+      font-size: 36px;
+    }
+    @media (min-width: ${MEDIA.desktop}) {
       font-size: 48px;
     }
   }
 
   p {
-    color: #535353;
+    color: ${COLORS.textDark};
     margin: 20px 0px;
-    @media (min-width: 840px) {
-      font-size: 24px;
+    font-size: small;
+    @media (min-width: ${MEDIA.tablet}) {
+      font-size: medium;
+    }
+    @media (min-width: ${MEDIA.desktop}) {
+      font-size: large;
     }
   }
 `;
@@ -36,7 +45,7 @@ const ContactCard = styled.div`
   padding: 30px;
   box-sizing: border-box;
   box-shadow: 0px 9px 10px rgba(0, 0, 0, 0.3);
-  color: #e6be8a;
+  color: ${COLORS.lightBrown};
   border-radius: 5px;
 
   @media (max-width: 840px) {
@@ -47,17 +56,17 @@ const ContactCard = styled.div`
 const FancyInput = styled.input`
   width: 100%;
   height: 45px;
-  border: 1px solid #e6be8a;
+  border: 1px solid ${COLORS.lightBrown};
   border-radius: 5px;
   margin: 10px 0px;
   padding: 0px 15px;
   outline: none;
-  color: #e6be8a;
+  color: ${COLORS.lightBrown};
   font-size: 16px;
   font-family: "Ibarra Real Nova", cursive;
 
   &::placeholder {
-    color: #e6be8a;
+    color: ${COLORS.lightBrown};
     opacity: 0.9;
     font-size: 13px;
   }
@@ -66,18 +75,18 @@ const FancyInput = styled.input`
 const FancyTextArea = styled.textarea`
   width: 100%;
   display: block;
-  border: 1px solid #e6be8a;
+  border: 1px solid ${COLORS.lightBrown};
   border-radius: 5px;
   margin: 10px 0px;
   padding: 15px;
   resize: none;
   outline: none;
-  color: #e6be8a;
+  color: ${COLORS.lightBrown};
   font-size: 16px;
   font-family: "Ibarra Real Nova", cursive;
 
   &::placeholder {
-    color: #e6be8a;
+    color: ${COLORS.lightBrown};
     opacity: 0.9;
     font-size: 13px;
   }
@@ -87,10 +96,10 @@ const Button = styled.button`
   width: 100%;
   display: block;
   height: 40px;
-  background-color: #e6be8a;
+  background-color: ${COLORS.lightBrown};
   border-radius: 5px;
-  border: 1px solid #e6be8a;
-  color: #ffffff;
+  border: 1px solid ${COLORS.lightBrown};
+  color: ${COLORS.textLight};
   outline: none;
   font-size: 14px;
   font-family: "Ibarra Real Nova", serif;
