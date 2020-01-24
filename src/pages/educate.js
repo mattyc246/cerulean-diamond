@@ -2,7 +2,7 @@ import React from "react";
 import FourCs from "../assets/JWD-Image/03-4c/13.png";
 import styled from "styled-components";
 import Layout from "../components/Layout";
-import DATA from "../constants/DiamondData";
+import { DATA } from "../constants/DiamondData";
 
 const HeroSection = styled.section`
   width: 100%;
