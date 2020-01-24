@@ -13,14 +13,14 @@ const StyledButton = styled(props => <Link {...props} />)`
   outline: none;
   font-size: 14px;
   font-family: "Ibarra Real Nova", serif;
-  padding: 5px;
+  padding: ${props => (props.padding ? props.padding : "5px")};
   text-align: center;
   text-decoration: none;
 `;
 
-const ButtonLink = ({ children, width, height, to }) => {
+const ButtonLink = ({ children, width, height, to, padding }) => {
   return (
-    <StyledButton width={width} height={height} to={to}>
+    <StyledButton width={width} height={height} to={to} padding={padding}>
       {children}
     </StyledButton>
   );
