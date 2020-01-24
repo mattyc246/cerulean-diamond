@@ -1,9 +1,7 @@
 import React from "react";
+import { graphql } from "gatsby";
 import Layout from "../components/Layout";
 import styled from "styled-components";
-import HeroImage from "../assets/JWD-Image/01-Home/01.png";
-import CTAImage from "../assets/JWD-Image/01-Home/09.png";
-import AboutImage from "../assets/JWD-Image/01-Home/02.png";
 import Gallery from "../components/Gallery";
 import { MEDIA, COLORS } from "../constants/variables";
 import ButtonLink from "../components/ButtonLink";
@@ -109,63 +107,77 @@ const CallToAction = styled.section`
   }
 `;
 
-const IndexPage = () => (
-  <Layout hoverNav={true}>
-    <Hero image={HeroImage}>
-      <HeroContent>
-        <div>
-          <h2>Lorem Ipsum Is Simply</h2>
-          <p>
-            It is a long established fact that a reader will be distracted by
-            the readable content of a page when looking at its layout. The point
-            of using Lorem Ipsum is that it.
-          </p>
-        </div>
-      </HeroContent>
-    </Hero>
-    <Content className="container">
-      <div className="row">
-        <div className="col-lg-7 mt-5 mb-5">
-          <div className="w-75 d-flex flex-column">
-            <h2>About Us</h2>
-            <p>
-              Vestibulum ante ipsum primis in faucibus orci luctus et ultrices
-              posuere cubilia Curae.
-            </p>
-            <p>
-              Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit
-              amet ligula. Nulla porttitor accumsan tincidunt. Curabitur aliquet
-              quam id dui posuere blandit. Curabitur arcu erat, accumsan id
-              imperdiet et, porttitor at sem. Pellentesque in ipsum id orci
-              porta dapibus.
-            </p>
-            <ButtonLink width="90px" className="mt-3" to="/about">
-              More Details
-            </ButtonLink>
+const IndexPage = ({ data: datoCmsHome }) => {
+  console.log(datoCmsHome);
+  return (
+    <Layout hoverNav={true}>
+      <Hero image={datoCmsHome.datoCmsHome.heroImage.url}>
+        <HeroContent>
+          <div>
+            <h2>{datoCmsHome.datoCmsHome.heroTitle}</h2>
+            <p>{datoCmsHome.datoCmsHome.heroText}</p>
+          </div>
+        </HeroContent>
+      </Hero>
+      <Content className="container">
+        <div className="row">
+          <div className="col-lg-7 mt-5 mb-5">
+            <div className="w-75 d-flex flex-column">
+              <h2>{datoCmsHome.datoCmsHome.introTitle}</h2>
+              <p>{datoCmsHome.datoCmsHome.introText}</p>
+              <ButtonLink width="90px" className="mt-3" to="/about">
+                More Details
+              </ButtonLink>
+            </div>
+          </div>
+          <div className="col-lg-5 mt-5 mb-5 d-none d-lg-flex">
+            <img
+              className="w-100"
+              src={datoCmsHome.datoCmsHome.introImage.url}
+              alt={datoCmsHome.datoCmsHome.introImage.alt}
+            />
           </div>
         </div>
-        <div className="col-lg-5 mt-5 mb-5 d-none d-lg-flex">
-          <img className="w-100" src={AboutImage} alt="Diamond Ring on Woman" />
-        </div>
-      </div>
-    </Content>
-    <Gallery />
-    <CallToAction image={CTAImage}>
-      <div className="container">
-        <div className="row justify-content-end align-items-center">
-          <div className="col-md-8 col-xs-10">
-            <h2>Lorem Ipsum Is</h2>
-            <p>
-              It is a long established fact that a reader will be distracted.
-            </p>
-            <ButtonLink width="100px" className="ml-auto d-block" to="/about">
-              Know More
-            </ButtonLink>
+      </Content>
+      <Gallery />
+      <CallToAction image={datoCmsHome.datoCmsHome.ctaImage.url}>
+        <div className="container">
+          <div className="row justify-content-end align-items-center">
+            <div className="col-md-8 col-xs-10">
+              <h2>{datoCmsHome.datoCmsHome.ctaTitle}</h2>
+              <p>{datoCmsHome.datoCmsHome.ctaText}</p>
+              <ButtonLink width="100px" className="ml-auto d-block" to="/about">
+                Know More
+              </ButtonLink>
+            </div>
           </div>
         </div>
-      </div>
-    </CallToAction>
-  </Layout>
-);
+      </CallToAction>
+    </Layout>
+  );
+};
 
 export default IndexPage;
+
+export const query = graphql`
+  {
+    datoCmsHome {
+      heroTitle
+      heroText
+      heroImage {
+        url
+      }
+      introTitle
+      introText
+      introImage {
+        url
+        alt
+      }
+      ctaTitle
+      ctaText
+      ctaImage {
+        url
+      }
+    }
+  }
+`;
