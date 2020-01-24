@@ -107,14 +107,14 @@ const CallToAction = styled.section`
   }
 `;
 
-const IndexPage = ({ data: datoCmsHome }) => {
+const IndexPage = ({ data: { home } }) => {
   return (
     <Layout hoverNav={true}>
-      <Hero image={datoCmsHome.datoCmsHome.heroImage.url}>
+      <Hero image={home.heroImage.url}>
         <HeroContent>
           <div>
-            <h2>{datoCmsHome.datoCmsHome.heroTitle}</h2>
-            <p>{datoCmsHome.datoCmsHome.heroText}</p>
+            <h2>{home.heroTitle}</h2>
+            <p>{home.heroText}</p>
           </div>
         </HeroContent>
       </Hero>
@@ -122,8 +122,8 @@ const IndexPage = ({ data: datoCmsHome }) => {
         <div className="row">
           <div className="col-lg-7 mt-5 mb-5">
             <div className="w-75 d-flex flex-column">
-              <h2>{datoCmsHome.datoCmsHome.introTitle}</h2>
-              <p>{datoCmsHome.datoCmsHome.introText}</p>
+              <h2>{home.introTitle}</h2>
+              <p>{home.introText}</p>
               <ButtonLink width="90px" className="mt-3" to="/about">
                 More Details
               </ButtonLink>
@@ -132,19 +132,19 @@ const IndexPage = ({ data: datoCmsHome }) => {
           <div className="col-lg-5 mt-5 mb-5 d-none d-lg-flex">
             <img
               className="w-100"
-              src={datoCmsHome.datoCmsHome.introImage.url}
-              alt={datoCmsHome.datoCmsHome.introImage.alt}
+              src={home.introImage.url}
+              alt={home.introImage.alt}
             />
           </div>
         </div>
       </Content>
-      <Gallery images={datoCmsHome.datoCmsHome.galleryImages} />
-      <CallToAction image={datoCmsHome.datoCmsHome.ctaImage.url}>
+      <Gallery images={home.galleryImages} />
+      <CallToAction image={home.ctaImage.url}>
         <div className="container">
           <div className="row justify-content-end align-items-center">
             <div className="col-md-8 col-xs-10">
-              <h2>{datoCmsHome.datoCmsHome.ctaTitle}</h2>
-              <p>{datoCmsHome.datoCmsHome.ctaText}</p>
+              <h2>{home.ctaTitle}</h2>
+              <p>{home.ctaText}</p>
               <ButtonLink width="100px" className="ml-auto d-block" to="/about">
                 Know More
               </ButtonLink>
@@ -159,8 +159,8 @@ const IndexPage = ({ data: datoCmsHome }) => {
 export default IndexPage;
 
 export const query = graphql`
-  {
-    datoCmsHome {
+  query HomeQuery {
+    home: datoCmsHome {
       heroTitle
       heroText
       heroImage {
