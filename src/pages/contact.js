@@ -1,4 +1,5 @@
 import React from "react";
+import { HelmetDatoCms } from "gatsby-source-datocms";
 import styled from "styled-components";
 import Layout from "../components/Layout";
 import { COLORS, MEDIA } from "../constants/variables";
@@ -110,6 +111,7 @@ const Button = styled.button`
 const Contact = ({ data: { contact } }) => {
   return (
     <Layout>
+      <HelmetDatoCms seo={contact.seoMetaTags} />
       <StyledSection image={contact.backgroundImage.url}>
         <div className="container">
           <div className="row justify-content-between">
@@ -161,6 +163,9 @@ export default Contact;
 export const query = graphql`
   query ContactPage {
     contact: datoCmsContact {
+      seoMetaTags {
+        ...GatsbyDatoCmsSeoMetaTags
+      }
       title
       subtitle
       image {
