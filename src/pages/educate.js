@@ -1,5 +1,6 @@
 import React from "react";
 import { graphql } from "gatsby";
+import { HelmetDatoCms } from "gatsby-source-datocms";
 import styled from "styled-components";
 import Layout from "../components/Layout";
 import { COLORS, MEDIA } from "../constants/variables";
@@ -60,6 +61,7 @@ const SubArticle = styled.article`
 const Educate = ({ data: { hero, fours } }) => {
   return (
     <Layout>
+      <HelmetDatoCms seo={hero.seoMetaTags} />
       <HeroSection>
         <div className="container">
           <h1>{hero.heroTitle}</h1>
@@ -99,6 +101,9 @@ export default Educate;
 export const query = graphql`
   query EducatePage {
     hero: datoCmsEducate {
+      seoMetaTags {
+        ...GatsbyDatoCmsSeoMetaTags
+      }
       heroTitle
       heroText
       heroImage {
