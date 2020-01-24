@@ -3,42 +3,57 @@ import FourCs from "../assets/JWD-Image/03-4c/13.png";
 import styled from "styled-components";
 import Layout from "../components/Layout";
 import { DATA } from "../constants/DiamondData";
+import { COLORS, MEDIA } from "../constants/variables";
 
 const HeroSection = styled.section`
   width: 100%;
   text-align: center;
-  color: #535353;
+  color: ${COLORS.textDark};
 
   h1 {
-    color: #e6be8a;
+    color: ${COLORS.lightBrown};
     margin-bottom: 10px;
-    @media (min-width: 840px) {
+    @media (min-width: ${MEDIA.tablet}) {
+      font-size: 36px;
+    }
+    @media (min-width: ${MEDIA.desktop}) {
       font-size: 48px;
     }
   }
 
   p {
-    @media (min-width: 840px) {
-      font-size: 24px;
+    font-size: small;
+    @media (min-width: ${MEDIA.tablet}) {
+      font-size: medium;
+    }
+    @media (min-width: ${MEDIA.desktop}) {
+      font-size: large;
     }
   }
 `;
 
 const SubArticle = styled.article`
-  color: #535353;
+  color: ${COLORS.textDark};
   text-align: left;
 
   h2 {
-    color: #e6be8a;
+    color: ${COLORS.lightBrown};
     margin: 0px 0px 20px 0px;
-    @media (min-width: 840px) {
+    @media (min-width: ${MEDIA.tablet}) {
+      font-size: 28px;
+    }
+    @media (min-width: ${MEDIA.desktop}) {
       font-size: 34px;
     }
   }
 
   p {
-    @media (min-width: 840px) {
-      font-size: 20px;
+    font-size: small;
+    @media (min-width: ${MEDIA.tablet}) {
+      font-size: medium;
+    }
+    @media (min-width: ${MEDIA.desktop}) {
+      font-size: large;
     }
   }
 `;
