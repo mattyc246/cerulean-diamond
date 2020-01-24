@@ -4,6 +4,7 @@ import Layout from "../components/Layout";
 import Diamonds from "../assets/JWD-Image/04-Contact/19.png";
 import Necklace from "../assets/JWD-Image/04-Contact/18.png";
 import { COLORS, MEDIA } from "../constants/variables";
+import { graphql } from "gatsby";
 
 const StyledSection = styled.section`
   width: 100%;
@@ -108,18 +109,15 @@ const Button = styled.button`
   text-decoration: none;
 `;
 
-const Contact = () => {
+const Contact = ({ data: { contact } }) => {
   return (
     <Layout>
-      <StyledSection image={Diamonds}>
+      <StyledSection image={contact.backgroundImage.url}>
         <div className="container">
           <div className="row justify-content-between">
             <div className="col-md-6">
-              <h1>Contact Us</h1>
-              <p>
-                Vestibulum ante ipsum primis in faucibus orci luctus et ultrices
-                posuere cubilia Curae.
-              </p>
+              <h1>{contact.title}</h1>
+              <p>{contact.subtitle}</p>
               <ContactCard>
                 <small>
                   <strong>Email</strong>
@@ -149,8 +147,8 @@ const Contact = () => {
             <div className="col-md-5">
               <img
                 className="w-100 d-none d-md-block mx-auto"
-                src={Necklace}
-                alt="Diamond Necklace"
+                src={contact.image.url}
+                alt={contact.image.alt}
               />
             </div>
           </div>
@@ -161,3 +159,20 @@ const Contact = () => {
 };
 
 export default Contact;
+
+export const query = graphql`
+  query ContactPage {
+    contact: datoCmsContact {
+      title
+      subtitle
+      image {
+        url
+        alt
+      }
+      backgroundImage {
+        url
+        alt
+      }
+    }
+  }
+`;
