@@ -19,7 +19,6 @@
     "react": "^16.10.2",
     "react-dom": "^16.10.2",
     "react-helmet": "^5.2.0",
-    "reactstrap": "^8.4.0",
     "styled-components": "^5.0.0"
   },
   "keywords": [
