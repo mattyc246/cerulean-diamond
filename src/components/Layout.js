@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import NavBar from "./NavBar";
 import Footer from "../components/Footer";
 import styled from "styled-components";
@@ -18,8 +18,9 @@ const Content = styled.main`
 `;
 
 const Layout = ({ children, hoverNav }) => {
+  const pageTop = useRef(null);
   return (
-    <PageContainer>
+    <PageContainer ref={pageTop}>
       <NavBar hoverNav={hoverNav} />
       <Content>{children}</Content>
       <Footer />
