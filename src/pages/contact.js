@@ -17,9 +17,9 @@ const ContactCard = styled.div`
   width: 75%;
   background-color: white;
   display: block;
-  padding: 10px;
+  padding: 30px;
   box-sizing: border-box;
-  box-shadow: 0px 8px 10px rgba(0, 0, 0, 0.3);
+  box-shadow: 0px 9px 10px rgba(0, 0, 0, 0.3);
   color: #e6be8a;
   border-radius: 5px;
 
@@ -67,6 +67,22 @@ const FancyTextArea = styled.textarea`
   }
 `;
 
+const Button = styled.button`
+  width: 100%;
+  display: block;
+  height: 40px;
+  background-color: #e6be8a;
+  border-radius: 5px;
+  border: 1px solid #e6be8a;
+  color: #ffffff;
+  outline: none;
+  font-size: 14px;
+  font-family: "Ibarra Real Nova", serif;
+  padding: 5px;
+  text-align: center;
+  text-decoration: none;
+`;
+
 const Contact = () => {
   return (
     <Layout>
@@ -97,6 +113,7 @@ const Contact = () => {
                   placeholder="Give as many details as possible..."
                   rows="8"
                 ></FancyTextArea>
+                <Button>Submit</Button>
               </ContactCard>
             </div>
             <div className="col-md-5">
