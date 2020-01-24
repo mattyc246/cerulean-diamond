@@ -5,6 +5,7 @@ module.exports = {
     title: `Creative Portfolio`
   },
   plugins: [
+    `gatsby-plugin-styled-components`,
     `gatsby-plugin-react-helmet`,
     `gatsby-transformer-remark`,
     {
