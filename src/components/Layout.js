@@ -17,13 +17,17 @@ const Content = styled.main`
   position: relative;
 `;
 
+const scrollToTop = ref => window.scrollTo(0, ref.current.offsetTop);
+
 const Layout = ({ children, hoverNav }) => {
   const pageTop = useRef(null);
+  const jumpToTop = () => scrollToTop(pageTop);
+
   return (
     <PageContainer ref={pageTop}>
       <NavBar hoverNav={hoverNav} />
       <Content>{children}</Content>
-      <Footer />
+      <Footer jumpToTop={jumpToTop} />
     </PageContainer>
   );
 };
