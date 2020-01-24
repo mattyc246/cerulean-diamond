@@ -78,7 +78,7 @@ const Educate = ({ data: { hero, fours } }) => {
         </div>
       </HeroSection>
       <div className="container pb-5">
-        {fours.nodes.reverse().map((article, index) => {
+        {fours.nodes.map((article, index) => {
           return (
             <SubArticle key={article.id}>
               <img
