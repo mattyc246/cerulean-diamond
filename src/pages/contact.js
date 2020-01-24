@@ -1,8 +1,6 @@
 import React from "react";
 import styled from "styled-components";
 import Layout from "../components/Layout";
-import Diamonds from "../assets/JWD-Image/04-Contact/19.png";
-import Necklace from "../assets/JWD-Image/04-Contact/18.png";
 import { COLORS, MEDIA } from "../constants/variables";
 import { graphql } from "gatsby";
 
