@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { MEDIA } from "../constants/variables";
 
 const GalleryContent = styled.section`
   width: 100%;
@@ -26,7 +27,7 @@ const Caption = styled.div`
   position: absolute;
   left: 0px;
   bottom: 0px;
-  width: 70%;
+  width: 90%;
   height: 50px;
   padding: 10px;
   box-sizing: border-box;
@@ -35,9 +36,10 @@ const Caption = styled.div`
   p {
     color: #535353;
     margin: 0;
+    font-size: smaller;
 
-    @media (max-width: 840px) {
-      font-size: 8px;
+    @media (min-width: ${MEDIA.tablet}) {
+      font-size: medium;
     }
   }
 
