@@ -51,11 +51,11 @@ const HeroContent = styled.header`
     font-size: xx-small;
 
     @media (min-width: ${MEDIA.tablet}) {
-      font-size: small;
+      font-size: medium;
     }
 
     @media (min-width: ${MEDIA.desktop}) {
-      font-size: medium;
+      font-size: large;
     }
   }
 `;
@@ -70,7 +70,15 @@ const Content = styled.section`
 
   p {
     color: ${COLORS.textDark};
-    line-height: 25px;
+    font-size: xx-small;
+
+    @media (min-width: ${MEDIA.tablet}) {
+      font-size: medium;
+    }
+
+    @media (min-width: ${MEDIA.desktop}) {
+      font-size: large;
+    }
   }
 `;
 
@@ -99,11 +107,15 @@ const CallToAction = styled.section`
   }
 
   p {
-    font-size: x-small;
     text-align: right;
+    font-size: xx-small;
 
     @media (min-width: ${MEDIA.tablet}) {
       font-size: medium;
+    }
+
+    @media (min-width: ${MEDIA.desktop}) {
+      font-size: large;
     }
   }
 `;
