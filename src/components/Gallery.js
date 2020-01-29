@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { MEDIA } from "../constants/variables";
 
 const GalleryContent = styled.section`
   width: 100%;
@@ -7,11 +8,15 @@ const GalleryContent = styled.section`
 
 const Masonry = styled.article`
   margin: 1.5em auto;
-  column-count: 3;
+  column-count: 1;
   column-gap: 1em;
 
-  @media (max-width: 840px) {
+  @media (min-width: ${MEDIA.tablet}) {
     column-count: 2;
+  }
+
+  @media (min-width: ${MEDIA.desktop}) {
+    column-count: 3;
   }
 `;
 
@@ -26,24 +31,14 @@ const Caption = styled.div`
   position: absolute;
   left: 0px;
   bottom: 0px;
-  width: 70%;
-  height: 50px;
-  padding: 10px;
+  width: 90%;
+  padding: 5%;
   box-sizing: border-box;
   background-color: rgba(255, 255, 255, 0.7);
 
   p {
     color: #535353;
     margin: 0;
-
-    @media (max-width: 840px) {
-      font-size: 8px;
-    }
-  }
-
-  @media (max-width: 840px) {
-    height: 40px;
-    width: 80%;
   }
 `;
 

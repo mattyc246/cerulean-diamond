@@ -16,6 +16,10 @@ const StyledButton = styled(props => <Link {...props} />)`
   padding: ${props => (props.padding ? props.padding : "5px")};
   text-align: center;
   text-decoration: none;
+
+  &:hover {
+    font-weight: 700;
+  }
 `;
 
 const ButtonLink = props => {

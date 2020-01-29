@@ -52,6 +52,10 @@ const StyledIcon = styled(props => <FontAwesomeIcon {...props} />)`
 const StyledLink = styled(props => <Link {...props} />)`
   text-decoration: none;
   color: #535353;
+
+  &:hover {
+    font-weight: 700;
+  }
 `;
 
 const NavBar = ({ hoverNav }) => {
@@ -60,10 +64,21 @@ const NavBar = ({ hoverNav }) => {
     <Nav hoverNav={hoverNav}>
       <img src={logo} alt="Cerulean Diamond Logo" />
       <LinkBar>
-        <StyledLink to="/">Home</StyledLink>
-        <StyledLink to="/about">About</StyledLink>
-        <StyledLink to="/educate">Educate</StyledLink>
-        <ButtonLink width="100px" height="30px" to="/contact">
+        <StyledLink activeClassName="is-active" to="/">
+          Home
+        </StyledLink>
+        <StyledLink activeClassName="is-active" to="/about">
+          About
+        </StyledLink>
+        <StyledLink activeClassName="is-active" to="/educate">
+          Educate
+        </StyledLink>
+        <ButtonLink
+          activeClassName="is-active"
+          width="100px"
+          height="30px"
+          to="/contact"
+        >
           Contact
         </ButtonLink>
       </LinkBar>

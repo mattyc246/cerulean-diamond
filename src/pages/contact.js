@@ -2,7 +2,7 @@ import React from "react";
 import { HelmetDatoCms } from "gatsby-source-datocms";
 import styled from "styled-components";
 import Layout from "../components/Layout";
-import { COLORS, MEDIA } from "../constants/variables";
+import { COLORS, FONTSIZE } from "../constants/variables";
 import { graphql } from "gatsby";
 
 const StyledSection = styled.section`
@@ -16,25 +16,12 @@ const StyledSection = styled.section`
   h1 {
     color: ${COLORS.lightBrown};
     margin: 0px 0px 30px 0px;
-    font-size: 24px;
-    @media (min-width: ${MEDIA.tablet}) {
-      font-size: 36px;
-    }
-    @media (min-width: ${MEDIA.desktop}) {
-      font-size: 48px;
-    }
+    font-size: ${FONTSIZE.primaryTitle};
   }
 
   p {
     color: ${COLORS.textDark};
     margin: 20px 0px;
-    font-size: small;
-    @media (min-width: ${MEDIA.tablet}) {
-      font-size: medium;
-    }
-    @media (min-width: ${MEDIA.desktop}) {
-      font-size: large;
-    }
   }
 `;
 
@@ -47,10 +34,6 @@ const ContactCard = styled.div`
   box-shadow: 0px 9px 10px rgba(0, 0, 0, 0.3);
   color: ${COLORS.lightBrown};
   border-radius: 5px;
-
-  @media (max-width: 840px) {
-    width: 100%;
-  }
 `;
 
 const FancyInput = styled.input`
@@ -62,13 +45,13 @@ const FancyInput = styled.input`
   padding: 0px 15px;
   outline: none;
   color: ${COLORS.lightBrown};
-  font-size: 16px;
+  font-size: ${FONTSIZE.inputText};
   font-family: "Ibarra Real Nova", cursive;
 
   &::placeholder {
     color: ${COLORS.lightBrown};
     opacity: 0.9;
-    font-size: 13px;
+    font-size: ${FONTSIZE.placeholderText};
   }
 `;
 
@@ -82,13 +65,13 @@ const FancyTextArea = styled.textarea`
   resize: none;
   outline: none;
   color: ${COLORS.lightBrown};
-  font-size: 16px;
+  font-size: ${FONTSIZE.inputText};
   font-family: "Ibarra Real Nova", cursive;
 
   &::placeholder {
     color: ${COLORS.lightBrown};
     opacity: 0.9;
-    font-size: 13px;
+    font-size: ${FONTSIZE.placeholderText};
   }
 `;
 
@@ -115,7 +98,7 @@ const Contact = ({ data: { contact } }) => {
       <StyledSection image={contact.backgroundImage.url}>
         <div className="container">
           <div className="row justify-content-between">
-            <div className="col-md-6">
+            <div className="col-lg-6">
               <h1>{contact.title}</h1>
               <p>{contact.subtitle}</p>
               <ContactCard>
@@ -144,9 +127,9 @@ const Contact = ({ data: { contact } }) => {
                 <Button>Submit</Button>
               </ContactCard>
             </div>
-            <div className="col-md-5">
+            <div className="col-lg-5">
               <img
-                className="w-100 d-none d-md-block mx-auto"
+                className="w-100 d-none d-lg-block mx-auto"
                 src={contact.image.url}
                 alt={contact.image.alt}
               />

@@ -11,4 +11,11 @@ const COLORS = {
   textDark: "#535353"
 };
 
-export { MEDIA, COLORS };
+const FONTSIZE = {
+  primaryTitle: "42px",
+  primarySubtitle: "36px",
+  inputText: "16px",
+  placeholderText: "14px"
+};
+
+export { MEDIA, COLORS, FONTSIZE };

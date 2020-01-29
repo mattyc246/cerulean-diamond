@@ -50,3 +50,7 @@ a {
 .h-25 {
   height: 25% !important;
 }
+
+.is-active {
+  font-weight: 700;
+}
