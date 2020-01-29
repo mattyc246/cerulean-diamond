@@ -3,7 +3,7 @@ import { graphql } from "gatsby";
 import { HelmetDatoCms } from "gatsby-source-datocms";
 import styled from "styled-components";
 import Layout from "../components/Layout";
-import { COLORS, MEDIA } from "../constants/variables";
+import { COLORS, FONTSIZE } from "../constants/variables";
 
 const HeroSection = styled.section`
   width: 100%;
@@ -13,22 +13,7 @@ const HeroSection = styled.section`
   h1 {
     color: ${COLORS.lightBrown};
     margin-bottom: 10px;
-    @media (min-width: ${MEDIA.tablet}) {
-      font-size: 36px;
-    }
-    @media (min-width: ${MEDIA.desktop}) {
-      font-size: 48px;
-    }
-  }
-
-  p {
-    font-size: small;
-    @media (min-width: ${MEDIA.tablet}) {
-      font-size: medium;
-    }
-    @media (min-width: ${MEDIA.desktop}) {
-      font-size: large;
-    }
+    font-size: ${FONTSIZE.primaryTitle};
   }
 `;
 
@@ -39,22 +24,7 @@ const SubArticle = styled.article`
   h2 {
     color: ${COLORS.lightBrown};
     margin: 0px 0px 20px 0px;
-    @media (min-width: ${MEDIA.tablet}) {
-      font-size: 28px;
-    }
-    @media (min-width: ${MEDIA.desktop}) {
-      font-size: 34px;
-    }
-  }
-
-  p {
-    font-size: small;
-    @media (min-width: ${MEDIA.tablet}) {
-      font-size: medium;
-    }
-    @media (min-width: ${MEDIA.desktop}) {
-      font-size: large;
-    }
+    font-size: ${FONTSIZE.primarySubtitle};
   }
 `;
 
