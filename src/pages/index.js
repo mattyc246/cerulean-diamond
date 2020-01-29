@@ -94,7 +94,7 @@ const IndexPage = ({ data: { home } }) => {
       <Content className="container">
         <div className="row">
           <div className="col-lg-7 mt-5 mb-5">
-            <div className="w-75 d-flex flex-column">
+            <div className="w-100 d-flex flex-column">
               <h2>{home.introTitle}</h2>
               <div
                 dangerouslySetInnerHTML={{
