@@ -3,7 +3,7 @@ import { HelmetDatoCms } from "gatsby-source-datocms";
 import Layout from "../components/Layout";
 import styled from "styled-components";
 import ButtonLink from "../components/ButtonLink";
-import { MEDIA, COLORS } from "../constants/variables";
+import { MEDIA, COLORS, FONTSIZE } from "../constants/variables";
 import { graphql } from "gatsby";
 
 const StyledContent = styled.article`
@@ -15,7 +15,7 @@ const StyledContent = styled.article`
 
   h1 {
     color: ${COLORS.lightBrown};
-    font-size: 48px;
+    font-size: ${FONTSIZE.primaryTitle};
   }
 
   p {
@@ -51,21 +51,11 @@ const HeroSection = styled.section`
     h2 {
       color: ${COLORS.lightBrown};
       margin: 0;
-      font-size: 48px;
+      font-size: ${FONTSIZE.primarySubtitle};
     }
 
     p {
       color: ${COLORS.textLight};
-    }
-
-    div {
-      height: 90%;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-evenly;
-      @media (min-width: ${MEDIA.tablet}) {
-        height: 40%;
-      }
     }
   }
 `;
@@ -103,6 +93,7 @@ const CallToAction = styled.section`
 
 const CTAContent = styled.article`
   width: 80%;
+  max-width: 600px;
   height: 65%;
   position: absolute;
   top: 50%;
@@ -114,33 +105,14 @@ const CTAContent = styled.article`
   align-items: center;
   justify-content: space-evenly;
 
-  @media (min-width: ${MEDIA.tablet}) {
-    width: 50%;
-  }
-
   h2 {
     color: ${COLORS.darkBrown};
-    font-size: 28px;
+    font-size: ${FONTSIZE.primarySubtitle};
     margin: 0;
-
-    @media (min-width: ${MEDIA.tablet}) {
-      font-size: 36px;
-    }
-
-    @media (min-width: ${MEDIA.desktop}) {
-      font-size: 48px;
-    }
   }
 
   p {
     color: ${COLORS.lightBrown};
-    font-size: x-small;
-    @media (min-width: ${MEDIA.tablet}) {
-      font-size: medium;
-    }
-    @media (min-width: ${MEDIA.desktop}) {
-      font-size: larger;
-    }
   }
 `;
 

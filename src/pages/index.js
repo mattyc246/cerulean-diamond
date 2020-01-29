@@ -4,7 +4,7 @@ import { HelmetDatoCms } from "gatsby-source-datocms";
 import Layout from "../components/Layout";
 import styled from "styled-components";
 import Gallery from "../components/Gallery";
-import { COLORS } from "../constants/variables";
+import { COLORS, FONTSIZE } from "../constants/variables";
 import ButtonLink from "../components/ButtonLink";
 
 const Hero = styled.section`
@@ -31,7 +31,7 @@ const HeroContent = styled.header`
   }
 
   h2 {
-    font-size: 48px;
+    font-size: ${FONTSIZE.primaryTitle};
     opacity: 0.9;
   }
 
@@ -46,7 +46,7 @@ const Content = styled.section`
 
   h2 {
     color: ${COLORS.lightBrown};
-    font-size: 36px;
+    font-size: ${FONTSIZE.primarySubtitle};
   }
 
   p {
@@ -65,7 +65,7 @@ const CallToAction = styled.section`
   color: white;
 
   h2 {
-    font-size: 36px;
+    font-size: ${FONTSIZE.primarySubtitle};
     text-align: right;
     margin: 0;
   }
