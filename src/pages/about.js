@@ -24,26 +24,17 @@ const StyledContent = styled.article`
 `;
 
 const HeroSection = styled.section`
-  height: 80vw;
   width: 100%;
   background-image: url(${props => props.image});
   background-position: center;
   background-size: cover;
   position: relative;
 
-  @media (min-width: ${MEDIA.tablet}) {
-    height: 60vw;
-  }
-
-  @media (min-width: ${MEDIA.desktop}) {
-    height: 50vw;
-  }
-
   article {
     width: 100%;
     height: 100%;
     background-color: ${COLORS.overlay};
-    padding: 0px 10%;
+    padding: 20% 10%;
     display: flex;
     align-items: center;
     position: relative;
