@@ -8,10 +8,14 @@ const GalleryContent = styled.section`
 
 const Masonry = styled.article`
   margin: 1.5em auto;
-  column-count: 2;
+  column-count: 1;
   column-gap: 1em;
 
   @media (min-width: ${MEDIA.tablet}) {
+    column-count: 2;
+  }
+
+  @media (min-width: ${MEDIA.desktop}) {
     column-count: 3;
   }
 `;

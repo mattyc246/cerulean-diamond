@@ -8,35 +8,18 @@ import { graphql } from "gatsby";
 
 const StyledContent = styled.article`
   height: 100%;
-  width: 75%;
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
 
-  @media (max-width: ${MEDIA.tablet}) {
-    width: 100%;
-  }
-
   h1 {
     color: ${COLORS.lightBrown};
-    font-size: 28px;
-    @media (min-width: ${MEDIA.tablet}) {
-      font-size: 36px;
-    }
-    @media (min-width: ${MEDIA.desktop}) {
-      font-size: 48px;
-    }
+    font-size: 48px;
   }
 
   p {
     color: ${COLORS.textDark};
-    font-size: small;
-    @media (min-width: ${MEDIA.tablet}) {
-      font-size: medium;
-    }
-    @media (min-width: ${MEDIA.desktop}) {
-      font-size: large;
-    }
   }
 `;
 
@@ -68,28 +51,11 @@ const HeroSection = styled.section`
     h2 {
       color: ${COLORS.lightBrown};
       margin: 0;
-      font-size: 28px;
-
-      @media (min-width: ${MEDIA.tablet}) {
-        font-size: 36px;
-      }
-
-      @media (min-width: ${MEDIA.desktop}) {
-        font-size: 48px;
-      }
+      font-size: 48px;
     }
 
     p {
       color: ${COLORS.textLight};
-      font-size: xx-small;
-
-      @media (min-width: ${MEDIA.tablet}) {
-        font-size: medium;
-      }
-
-      @media (min-width: ${MEDIA.desktop}) {
-        font-size: large;
-      }
     }
 
     div {
