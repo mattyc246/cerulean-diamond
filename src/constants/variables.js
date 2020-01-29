@@ -11,4 +11,19 @@ const COLORS = {
   textDark: "#535353"
 };
 
-export { MEDIA, COLORS };
+const FONTSIZE = {
+  primaryTitle: "48px",
+  primarySubtitle: "36px",
+  primaryText: "12px",
+  mobileTitle: "24px",
+  mobileSubtitle: "18px",
+  mobileText: "12px",
+  tabletTitle: "48px",
+  tabletSubtitle: "36px",
+  tabletText: "12px",
+  desktopTitle: "48px",
+  desktopSubtitle: "36px",
+  desktopText: "12px"
+};
+
+export { MEDIA, COLORS, FONTSIZE };

@@ -4,7 +4,7 @@ import { HelmetDatoCms } from "gatsby-source-datocms";
 import Layout from "../components/Layout";
 import styled from "styled-components";
 import Gallery from "../components/Gallery";
-import { MEDIA, COLORS } from "../constants/variables";
+import { COLORS } from "../constants/variables";
 import ButtonLink from "../components/ButtonLink";
 
 const Hero = styled.section`
@@ -25,38 +25,19 @@ const HeroContent = styled.header`
   color: ${COLORS.textLight};
   text-align: center;
 
-  div {
-    width: 70%;
-
-    @media (min-width: ${MEDIA.tablet}) {
-      width: 500px;
-    }
+  .hero-container {
+    width: 90%;
+    max-width: 600px;
   }
 
   h2 {
-    font-size: 20px;
+    font-size: 48px;
     opacity: 0.9;
-
-    @media (min-width: ${MEDIA.tablet}) {
-      font-size: 40px;
-    }
-
-    @media (min-width: ${MEDIA.desktop}) {
-      font-size: 48px;
-    }
   }
 
   p {
     opacity: 0.8;
-    font-size: xx-small;
-
-    @media (min-width: ${MEDIA.tablet}) {
-      font-size: medium;
-    }
-
-    @media (min-width: ${MEDIA.desktop}) {
-      font-size: large;
-    }
+    text-align: "center";
   }
 `;
 
@@ -65,20 +46,11 @@ const Content = styled.section`
 
   h2 {
     color: ${COLORS.lightBrown};
-    font-size: xx-large;
+    font-size: 36px;
   }
 
   p {
     color: ${COLORS.textDark};
-    font-size: xx-small;
-
-    @media (min-width: ${MEDIA.tablet}) {
-      font-size: medium;
-    }
-
-    @media (min-width: ${MEDIA.desktop}) {
-      font-size: large;
-    }
   }
 `;
 
@@ -93,30 +65,13 @@ const CallToAction = styled.section`
   color: white;
 
   h2 {
-    font-size: 20px;
+    font-size: 36px;
     text-align: right;
     margin: 0;
-
-    @media (min-width: ${MEDIA.tablet}) {
-      font-size: 36px;
-    }
-
-    @media (min-width: ${MEDIA.desktop}) {
-      font-size: 48px;
-    }
   }
 
   p {
     text-align: right;
-    font-size: xx-small;
-
-    @media (min-width: ${MEDIA.tablet}) {
-      font-size: medium;
-    }
-
-    @media (min-width: ${MEDIA.desktop}) {
-      font-size: large;
-    }
   }
 `;
 
@@ -126,7 +81,7 @@ const IndexPage = ({ data: { home } }) => {
       <HelmetDatoCms seo={home.seoMetaTags} />
       <Hero image={home.heroImage.url}>
         <HeroContent>
-          <div>
+          <div className="hero-container">
             <h2>{home.heroTitle}</h2>
             <div
               dangerouslySetInnerHTML={{
