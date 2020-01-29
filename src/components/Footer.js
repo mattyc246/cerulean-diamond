@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCaretSquareUp } from "@fortawesome/free-regular-svg-icons";
+import { useStaticQuery, graphql } from "gatsby";
 
 const Footer = styled.footer`
   height: 150px;
@@ -62,19 +63,31 @@ const StyledIcon = styled(props => <FontAwesomeIcon {...props} />)`
 `;
 
 const FooterBar = ({ jumpToTop }) => {
+  const { footer } = useStaticQuery(graphql`
+    query Footer {
+      footer: datoCmsFooter {
+        leftTitle
+        leftText
+        middleTitle
+        middleText
+        rightTitle
+        rightText
+      }
+    }
+  `);
   return (
     <Footer>
       <div>
-        <h6>START A PROJECT</h6>
-        <p>We are ready for the challenge CeruleanDiamonds@mail.com</p>
+        <h6>{footer.leftTitle.toUpperCase()}</h6>
+        <p>{footer.leftText}</p>
       </div>
       <div>
-        <h6>SAY HELLO</h6>
-        <p>497 Evergreen Rd. Roseville, CA 95673 +44-345-678-903</p>
+        <h6>{footer.middleTitle.toUpperCase()}</h6>
+        <p>{footer.middleText}</p>
       </div>
       <div>
-        <h6>JOBS</h6>
-        <p>We are ready for the challenge CeruleanDiamonds@mail.com</p>
+        <h6>{footer.rightTitle.toUpperCase()}</h6>
+        <p>{footer.rightText}</p>
       </div>
       <StyledIcon onClick={() => jumpToTop()} icon={faCaretSquareUp} />
     </Footer>
