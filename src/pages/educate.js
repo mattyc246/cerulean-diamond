@@ -65,7 +65,11 @@ const Educate = ({ data: { hero, fours } }) => {
       <HeroSection>
         <div className="container">
           <h1>{hero.heroTitle}</h1>
-          <p>{hero.heroText}</p>
+          <div
+            dangerouslySetInnerHTML={{
+              __html: hero.heroTextNode.childMarkdownRemark.html
+            }}
+          ></div>
           <img
             className="w-75 d-block mx-auto"
             src={hero.heroImage.url}
@@ -73,7 +77,11 @@ const Educate = ({ data: { hero, fours } }) => {
           />
           <SubArticle>
             <h2>{hero.heroSubtitle}</h2>
-            <p>{hero.heroSubtext}</p>
+            <div
+              dangerouslySetInnerHTML={{
+                __html: hero.heroSubtextNode.childMarkdownRemark.html
+              }}
+            ></div>
           </SubArticle>
         </div>
       </HeroSection>
@@ -87,7 +95,11 @@ const Educate = ({ data: { hero, fours } }) => {
                 alt={article.image.alt}
               />
               <h2>{article.title}</h2>
-              <p>{article.text}</p>
+              <div
+                dangerouslySetInnerHTML={{
+                  __html: article.textNode.childMarkdownRemark.html
+                }}
+              ></div>
             </SubArticle>
           );
         })}
@@ -105,19 +117,31 @@ export const query = graphql`
         ...GatsbyDatoCmsSeoMetaTags
       }
       heroTitle
-      heroText
+      heroTextNode {
+        childMarkdownRemark {
+          html
+        }
+      }
       heroImage {
         url
         alt
       }
       heroSubtitle
-      heroSubtext
+      heroSubtextNode {
+        childMarkdownRemark {
+          html
+        }
+      }
     }
     fours: allDatoCmsFourC {
       nodes {
         id
         title
-        text
+        textNode {
+          childMarkdownRemark {
+            html
+          }
+        }
         image {
           url
           alt
