@@ -186,7 +186,11 @@ const About = ({ data: { about } }) => (
         <div className="col-sm-7">
           <StyledContent>
             <h1>{about.heroTitle}</h1>
-            <p>{about.heroText}</p>
+            <div
+              dangerouslySetInnerHTML={{
+                __html: about.heroTextNode.childMarkdownRemark.html
+              }}
+            ></div>
           </StyledContent>
         </div>
         <div className="col-sm-5">
@@ -202,7 +206,11 @@ const About = ({ data: { about } }) => (
       <article>
         <div>
           <h2>{about.contentTitle}</h2>
-          <p>{about.contentText}</p>
+          <div
+            dangerouslySetInnerHTML={{
+              __html: about.contentTextNode.childMarkdownRemark.html
+            }}
+          ></div>
         </div>
         <StyledImage
           src={about.hoverImages[0].url}
@@ -247,13 +255,21 @@ export const query = graphql`
         ...GatsbyDatoCmsSeoMetaTags
       }
       heroTitle
-      heroText
+      heroTextNode {
+        childMarkdownRemark {
+          html
+        }
+      }
       heroImage {
         url
         alt
       }
       contentTitle
-      contentText
+      contentTextNode {
+        childMarkdownRemark {
+          html
+        }
+      }
       contentImage {
         url
       }
