@@ -56,10 +56,22 @@ const MobileMenu = ({ isShown, setIsShown }) => {
       </MenuHeader>
       <LinkBar>
         <div>
-          <StyledLink to="/">Home</StyledLink>
-          <StyledLink to="/about">About</StyledLink>
-          <StyledLink to="/educate">Educate</StyledLink>
-          <ButtonLink width="70%" height="50px" to="/contact" padding="15px">
+          <StyledLink activeClassName="is-active" to="/">
+            Home
+          </StyledLink>
+          <StyledLink activeClassName="is-active" to="/about">
+            About
+          </StyledLink>
+          <StyledLink activeClassName="is-active" to="/educate">
+            Educate
+          </StyledLink>
+          <ButtonLink
+            activeClassName="is-active"
+            width="70%"
+            height="50px"
+            to="/contact"
+            padding="15px"
+          >
             Contact
           </ButtonLink>
         </div>
