@@ -25,12 +25,16 @@ const MasonryItem = styled.div`
   margin: 0 0 1em;
   width: 100%;
   position: relative;
+
+  img {
+    box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.3);
+  }
 `;
 
 const Caption = styled.div`
   position: absolute;
   left: 0px;
-  bottom: 0px;
+  bottom: 5px;
   width: 90%;
   padding: 5%;
   box-sizing: border-box;
