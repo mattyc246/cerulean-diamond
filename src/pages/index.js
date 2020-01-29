@@ -128,7 +128,11 @@ const IndexPage = ({ data: { home } }) => {
         <HeroContent>
           <div>
             <h2>{home.heroTitle}</h2>
-            <p>{home.heroText}</p>
+            <div
+              dangerouslySetInnerHTML={{
+                __html: home.heroTextNode.childMarkdownRemark.html
+              }}
+            ></div>
           </div>
         </HeroContent>
       </Hero>
@@ -137,7 +141,11 @@ const IndexPage = ({ data: { home } }) => {
           <div className="col-lg-7 mt-5 mb-5">
             <div className="w-75 d-flex flex-column">
               <h2>{home.introTitle}</h2>
-              <p>{home.introText}</p>
+              <div
+                dangerouslySetInnerHTML={{
+                  __html: home.introTextNode.childMarkdownRemark.html
+                }}
+              ></div>
               <ButtonLink width="90px" className="mt-3" to="/about">
                 More Details
               </ButtonLink>
@@ -175,16 +183,21 @@ export default IndexPage;
 export const query = graphql`
   query HomeQuery {
     home: datoCmsHome {
-      seoMetaTags {
-        ...GatsbyDatoCmsSeoMetaTags
-      }
       heroTitle
-      heroText
+      heroTextNode {
+        childMarkdownRemark {
+          html
+        }
+      }
       heroImage {
         url
       }
       introTitle
-      introText
+      introTextNode {
+        childMarkdownRemark {
+          html
+        }
+      }
       introImage {
         url
         alt
