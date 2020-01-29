@@ -24,7 +24,7 @@ const StyledContent = styled.article`
 `;
 
 const HeroSection = styled.section`
-  height: 70vw;
+  height: 80vw;
   width: 100%;
   background-image: url(${props => props.image});
   background-position: center;
@@ -80,7 +80,7 @@ const StyledImage = styled.img`
 `;
 
 const CallToAction = styled.section`
-  height: 60vw;
+  height: 70vw;
   width: 100%;
   background-image: url(${props => props.image});
   background-size: cover;
