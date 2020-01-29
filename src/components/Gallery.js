@@ -8,11 +8,11 @@ const GalleryContent = styled.section`
 
 const Masonry = styled.article`
   margin: 1.5em auto;
-  column-count: 3;
+  column-count: 2;
   column-gap: 1em;
 
-  @media (max-width: 840px) {
-    column-count: 2;
+  @media (min-width: ${MEDIA.tablet}) {
+    column-count: 3;
   }
 `;
 
@@ -28,24 +28,13 @@ const Caption = styled.div`
   left: 0px;
   bottom: 0px;
   width: 90%;
-  height: 50px;
-  padding: 10px;
+  padding: 5%;
   box-sizing: border-box;
   background-color: rgba(255, 255, 255, 0.7);
 
   p {
     color: #535353;
     margin: 0;
-    font-size: smaller;
-
-    @media (min-width: ${MEDIA.tablet}) {
-      font-size: medium;
-    }
-  }
-
-  @media (max-width: 840px) {
-    height: 40px;
-    width: 80%;
   }
 `;
 
