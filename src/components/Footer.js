@@ -3,9 +3,10 @@ import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCaretSquareUp } from "@fortawesome/free-regular-svg-icons";
 import { useStaticQuery, graphql } from "gatsby";
+import { MEDIA } from "../constants/variables";
 
 const Footer = styled.footer`
-  height: 150px;
+  height: 175px;
   width: 100%;
   position: absolute;
   bottom: 0px;
@@ -19,7 +20,7 @@ const Footer = styled.footer`
   align-items: center;
 
   @media (max-width: 840px) {
-    height: 100px;
+    height: 150px;
     padding: 0px 3%;
   }
 
@@ -31,25 +32,25 @@ const Footer = styled.footer`
     flex-direction: column;
     justify-content: space-between;
 
-    p {
-      font-size: small;
-    }
+    @media (max-width: ${MEDIA.tablet}) {
+      width: 45%;
 
-    h6 {
-      margin: 10px 0px;
-    }
-
-    @media (max-width: 840px) {
-      width: 30%;
-
-      h6 {
-        font-size: 8px;
-      }
-
-      p {
-        font-size: 6px;
+      &:nth-child(3) {
+        display: none;
       }
     }
+  }
+
+  p {
+    font-size: xx-small;
+
+    @media (min-width: ${MEDIA.tablet}) {
+      font-size: smaller;
+    }
+  }
+
+  h6 {
+    margin: 5px 0px;
   }
 `;
 
