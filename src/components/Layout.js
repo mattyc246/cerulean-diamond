@@ -6,11 +6,6 @@ import styled from "styled-components";
 const PageContainer = styled.div`
   position: relative;
   min-height: 100vh;
-  padding-bottom: 175px;
-
-  @media (max-width: 840px) {
-    padding-bottom: 150px;
-  }
 `;
 
 const Content = styled.main`

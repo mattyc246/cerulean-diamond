@@ -44,6 +44,11 @@ const HeroContent = styled.header`
 const Content = styled.section`
   align-self: center;
 
+  .content-image {
+    max-height: 440px;
+    object-fit: contain;
+  }
+
   h2 {
     color: ${COLORS.lightBrown};
     font-size: ${FONTSIZE.primarySubtitle};
@@ -108,7 +113,7 @@ const IndexPage = ({ data: { home } }) => {
           </div>
           <div className="col-lg-5 mt-5 mb-5 d-none d-lg-flex">
             <img
-              className="w-100"
+              className="w-100 content-image"
               src={home.introImage.url}
               alt={home.introImage.alt}
             />

@@ -32,7 +32,7 @@ const LinkBar = styled.div`
   width: 500px;
 
   a {
-    font-size: 14px;
+    font-size: 15px;
   }
 
   @media (max-width: 840px) {
