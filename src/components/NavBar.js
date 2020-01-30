@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "gatsby";
 import styled from "styled-components";
-import logo from "../assets/logo.png";
+import logo from "../assets/logos/logo.png";
 import MobileMenu from "./MobileMenu";
 import ButtonLink from "./ButtonLink";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -62,7 +62,7 @@ const NavBar = ({ hoverNav }) => {
   const [isShown, setIsShown] = useState(false);
   return (
     <Nav hoverNav={hoverNav}>
-      <img src={logo} alt="Cerulean Diamond Logo" />
+      <img src={logo} width="75px" alt="Cerulean Diamond Logo" />
       <LinkBar>
         <StyledLink activeClassName="is-active" to="/">
           Home
