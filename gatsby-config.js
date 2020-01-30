@@ -2,7 +2,7 @@ require("dotenv").config();
 
 module.exports = {
   siteMetadata: {
-    title: `Creative Portfolio`
+    title: `Cerulean Diamonds`
   },
   plugins: [
     `gatsby-plugin-styled-components`,

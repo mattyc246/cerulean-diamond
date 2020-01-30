@@ -101,7 +101,7 @@ const IndexPage = ({ data: { home } }) => {
                   __html: home.introTextNode.childMarkdownRemark.html
                 }}
               ></div>
-              <ButtonLink width="90px" className="mt-3" to="/about">
+              <ButtonLink style={{alignSelf: 'baseline'}} className="mt-3" to="/about">
                 More Details
               </ButtonLink>
             </div>

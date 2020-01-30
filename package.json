@@ -1,8 +1,7 @@
 {
-  "name": "gatsby-datocms-demo",
-  "description": "Gatsby DatoCMS creative portfolio demo",
+  "name": "cerulean-diamonds",
+  "description": "An atelier for craftsman with over 20 years of experience in making fine diamond jewelry. Making magic come true, in the most beautiful form of jewelry!",
   "version": "1.0.0",
-  "author": "Stefano Verna <s.verna@datocms.com>",
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.26",
     "@fortawesome/free-regular-svg-icons": "^5.12.0",

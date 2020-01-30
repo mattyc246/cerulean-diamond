@@ -101,31 +101,34 @@ const Contact = ({ data: { contact } }) => {
             <div className="col-lg-6">
               <h1>{contact.title}</h1>
               <p>{contact.subtitle}</p>
-              <ContactCard>
-                <small>
-                  <strong>Email</strong>
-                </small>
-                <FancyInput type="text" placeholder="Your email address" />
-                <small>
-                  <strong>Full Name</strong>
-                </small>
-                <FancyInput type="text" placeholder="Your full name" />
-                <small>
-                  <strong>Subject</strong> (Optional)
-                </small>
-                <FancyInput
-                  type="text"
-                  placeholder="Summary of your observation..."
-                />
-                <small>
-                  <strong>Message</strong>
-                </small>
-                <FancyTextArea
-                  placeholder="Give as many details as possible..."
-                  rows="8"
-                ></FancyTextArea>
-                <Button>Submit</Button>
-              </ContactCard>
+              <form name="Contact Form" method="POST" data-netlify="true">
+                <input type="hidden" name="form-name" value="Contact Form" />
+                <ContactCard>
+                  <small>
+                    <strong>Email</strong>
+                  </small>
+                  <FancyInput name="email" type="text" placeholder="Your email address" />
+                  <small>
+                    <strong>Full Name</strong>
+                  </small>
+                  <FancyInput name="fullname" type="text" placeholder="Your full name" />
+                  <small>
+                    <strong>Subject</strong> (Optional)
+                  </small>
+                  <FancyInput
+                    name="subject"
+                    type="text"
+                  />
+                  <small>
+                    <strong>Message</strong>
+                  </small>
+                  <FancyTextArea
+                    name="message"
+                    rows="8"
+                  ></FancyTextArea>
+                  <Button>Submit</Button>
+                </ContactCard>
+              </form>
             </div>
             <div className="col-lg-5">
               <img
