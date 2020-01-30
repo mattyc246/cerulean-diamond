@@ -138,6 +138,9 @@ export default IndexPage;
 export const query = graphql`
   query HomeQuery {
     home: datoCmsHome {
+      seoMetaTags {
+        ...GatsbyDatoCmsSeoMetaTags
+      }
       heroTitle
       heroTextNode {
         childMarkdownRemark {
