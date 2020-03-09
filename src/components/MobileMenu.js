@@ -60,7 +60,7 @@ const MobileMenu = ({ isShown, setIsShown }) => {
             Home
           </StyledLink>
           <StyledLink activeClassName="is-active" to="/about">
-            About
+            Cerulean Diamonds
           </StyledLink>
           <StyledLink activeClassName="is-active" to="/educate">
             Educate

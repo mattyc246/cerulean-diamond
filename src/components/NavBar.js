@@ -68,7 +68,7 @@ const NavBar = ({ hoverNav }) => {
           Home
         </StyledLink>
         <StyledLink activeClassName="is-active" to="/about">
-          About
+          Cerulean Diamonds
         </StyledLink>
         <StyledLink activeClassName="is-active" to="/educate">
           Educate
@@ -89,3 +89,4 @@ const NavBar = ({ hoverNav }) => {
 };
 
 export default NavBar;
+
