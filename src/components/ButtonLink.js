@@ -13,7 +13,7 @@ const StyledButton = styled(props => <Link {...props} />)`
   outline: none;
   font-size: 14px;
   font-family: "Ibarra Real Nova", serif;
-  padding: ${props => (props.padding ? props.padding : "5px")};
+  padding: ${props => (props.padding ? props.padding : "10px")};
   text-align: center;
   text-decoration: none;
 

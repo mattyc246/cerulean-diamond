@@ -3,7 +3,7 @@ import { graphql } from "gatsby";
 import { HelmetDatoCms } from "gatsby-source-datocms";
 import Layout from "../components/Layout";
 import styled from "styled-components";
-import Gallery from "../components/Gallery";
+import ArticleGallery from "../components/ArticleGallery";
 import { COLORS, FONTSIZE } from "../constants/variables";
 import ButtonLink from "../components/ButtonLink";
 
@@ -59,6 +59,22 @@ const Content = styled.section`
   }
 `;
 
+const SubSection = styled.section`
+  align-self: center;
+  text-align: center;
+  width: 75%;
+  margin: 0 auto;
+
+  h2 {
+    color: ${COLORS.lightBrown};
+    font-size: ${FONTSIZE.primarySubtitle};
+  }
+
+  p {
+    color: ${COLORS.textDark};
+  }
+`;
+
 const CallToAction = styled.section`
   width: 100%;
   height: 50vh;
@@ -80,7 +96,7 @@ const CallToAction = styled.section`
   }
 `;
 
-const IndexPage = ({ data: { home } }) => {
+const IndexPage = ({ data: { home, gallery } }) => {
   return (
     <Layout hoverNav={true}>
       <HelmetDatoCms seo={home.seoMetaTags} />
@@ -106,7 +122,11 @@ const IndexPage = ({ data: { home } }) => {
                   __html: home.introTextNode.childMarkdownRemark.html
                 }}
               ></div>
-              <ButtonLink style={{alignSelf: 'baseline'}} className="mt-3" to="/about">
+              <ButtonLink
+                style={{ alignSelf: "baseline" }}
+                className="mt-3"
+                to="/about"
+              >
                 More Details
               </ButtonLink>
             </div>
@@ -120,7 +140,15 @@ const IndexPage = ({ data: { home } }) => {
           </div>
         </div>
       </Content>
-      <Gallery images={home.galleryImages} />
+      <SubSection className="mb-5 mt-5">
+        <h2>{home.subsectionTitle}</h2>
+        <div
+          dangerouslySetInnerHTML={{
+            __html: home.subsectionTextNode.childMarkdownRemark.html
+          }}
+        ></div>
+      </SubSection>
+      <ArticleGallery articles={gallery.nodes} />
       <CallToAction image={home.ctaImage.url}>
         <div className="container">
           <div className="row justify-content-end align-items-center">
@@ -165,6 +193,12 @@ export const query = graphql`
         url
         alt
       }
+      subsectionTitle
+      subsectionTextNode {
+        childMarkdownRemark {
+          html
+        }
+      }
       ctaTitle
       ctaText
       ctaImage {
@@ -175,6 +209,21 @@ export const query = graphql`
         alt
         title
         originalId
+      }
+    }
+    gallery: allDatoCmsLandingGallery {
+      nodes {
+        id
+        title
+        subtitle
+        bodyNode{
+          childMarkdownRemark {
+            html
+          }
+        }
+        image {
+          url
+        }
       }
     }
   }

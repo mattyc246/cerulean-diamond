@@ -1,10 +1,10 @@
-import React from 'react'
-import styled from 'styled-components'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCaretSquareUp } from '@fortawesome/free-regular-svg-icons'
-import { faFacebook, faInstagram } from '@fortawesome/free-brands-svg-icons'
-import { useStaticQuery, graphql, Link } from 'gatsby'
-import { MEDIA, COLORS } from '../constants/variables'
+import React from "react";
+import styled from "styled-components";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCaretSquareUp } from "@fortawesome/free-regular-svg-icons";
+import { faFacebook, faInstagram } from "@fortawesome/free-brands-svg-icons";
+import { useStaticQuery, graphql, Link } from "gatsby";
+import { COLORS } from "../constants/variables";
 
 const Footer = styled.footer`
   position: relative;
@@ -14,7 +14,7 @@ const Footer = styled.footer`
   padding-top: 10px;
   padding-bottom: 30px;
 
-  .container .row [class^=col-] {
+  .container .row [class^="col-"] {
     padding-left: 2.5em;
     padding-right: 2.5em;
   }
@@ -23,7 +23,7 @@ const Footer = styled.footer`
     margin: 20px auto;
 
     .nav-links {
-      padding-left: .3em;
+      padding-left: 0.3em;
 
       a {
         text-decoration: none;
@@ -53,7 +53,7 @@ const Footer = styled.footer`
       color: ${COLORS.lightBrown};
     }
   }
-`
+`;
 
 const StyledIcon = styled(props => <FontAwesomeIcon {...props} />)`
   color: #e6be8a;
@@ -61,7 +61,7 @@ const StyledIcon = styled(props => <FontAwesomeIcon {...props} />)`
   position: absolute;
   right: 10px;
   bottom: 10px;
-`
+`;
 
 const FooterBar = ({ jumpToTop }) => {
   const { footer } = useStaticQuery(graphql`
@@ -73,9 +73,9 @@ const FooterBar = ({ jumpToTop }) => {
         instagramLink
       }
     }
-  `)
+  `);
 
-  const { phone, email, facebookLink, instagramLink } = footer
+  const { phone, email, facebookLink, instagramLink } = footer;
 
   return (
     <Footer>
@@ -125,7 +125,7 @@ const FooterBar = ({ jumpToTop }) => {
       </div>
       <StyledIcon onClick={() => jumpToTop()} icon={faCaretSquareUp} />
     </Footer>
-  )
-}
+  );
+};
 
-export default FooterBar
+export default FooterBar;

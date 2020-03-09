@@ -77,6 +77,7 @@ const NavBar = ({ hoverNav }) => {
           activeClassName="is-active"
           width="100px"
           height="30px"
+          padding="5px"
           to="/contact"
         >
           Contact
@@ -89,4 +90,3 @@ const NavBar = ({ hoverNav }) => {
 };
 
 export default NavBar;
-
